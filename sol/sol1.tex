@@ -1,0 +1,233 @@
+\documentclass[12pt, notitlepage]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{
+	frame=single,
+	language=Java,
+	belowskip=3mm,
+	showstringspaces=false,
+	columns=flexible,
+	captionpos=b,
+	basicstyle={\small\ttfamily},
+	numbers=left,
+	numbersep=5pt,
+	%numbers=none,
+	numberstyle=\tiny\color{gray},
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen},
+	stringstyle=\color{mauve},
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=3
+}
+
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{fact}[thm]{Fact}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{eg}{Example}
+\newtheorem{ex}{Exercise}
+\newtheorem{defi}{Definition}
+\newtheorem{hw}{Homework}
+\newenvironment{sol}
+  {\par\vspace{3mm}\noindent{\it Solution}.}
+
+\newcommand{\fib}{\mbox{fib}}
+\newcommand{\ov}{\overline}
+\newcommand{\cb}{{\cal B}}
+\newcommand{\cc}{{\cal C}}
+\newcommand{\cd}{{\cal D}}
+\newcommand{\ce}{{\cal E}}
+\newcommand{\cf}{{\cal F}}
+\newcommand{\ch}{{\cal H}}
+\newcommand{\cl}{{\cal L}}
+\newcommand{\cm}{{\cal M}}
+\newcommand{\cp}{{\cal P}}
+\newcommand{\cz}{{\cal Z}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\la}{\leftarrow}
+\newcommand{\Ra}{\Rightarrow}
+\newcommand{\dist}{\mbox{\rm dist}}
+\newcommand{\bn}{{\mathbf N}}
+\newcommand{\bz}{{\mathbf Z}}
+
+\setlength{\parindent}{0pt}
+%\setlength{\parskip}{2ex}
+\newenvironment{proofof}[1]{\bigskip\noindent{\itshape #1. }}{\hfill$\Box$\medskip}
+
+\usepackage{enumerate,fullpage, proof}
+\newcommand{\Infer}[2]{\infer{#2}{#1}}
+
+\title{Homework 1}
+\author{Team: nogg\footnote{E-mail: \texttt{kimi.ysma@gmail.com}}\footnote{Team member: Ma Yesheng, Zhao Min, Hu Hu, Zou Yikai, Fan Minghua}}
+
+\begin{document}
+
+{\bf\small CS214: Algorithms and Complexity}\hfill{\bf\small 2016 Fall}
+{\let\newpage\relax\maketitle}
+
+
+
+
+
+\begin{ex}\rm
+\end{ex}
+
+\begin{sol}
+	\ \\ \\
+	Pseudocode:
+	
+	\begin{lstlisting}
+	function binomialCoefficient:
+		if k < 0 or k > n: return 0;
+		if k == 0 or k == n: return 1;
+		return C(n-1, k-1) + C(n-1, k);
+	\end{lstlisting}
+	\ \\
+	Python code:
+	\begin{lstlisting}[language=Python]
+	def biCoef(n, k):
+		if k < 0 or k > n:
+        	return 0
+    	if k == 0 or k == n:
+			return 1
+    	return biCoef(n-1, k) + biCoef(n-1, k-1)
+	\end{lstlisting}
+	\ \\
+	The running time is $O(C(n,\ k))$.Actually, it takes C(n, k)-1 times of addition.\\
+	It may be quite efficient when k comes very close to zero or n, while it's not when k is close to $[n/2]$. \\
+	
+\end{sol}
+
+\begin{ex}\rm
+\end{ex}
+
+\begin{sol}
+	\ \\ \\
+	Pseudocode:
+	
+	\begin{lstlisting}
+	function binomialCoefficient:
+		if k < 0 or k > n: return 0;
+		
+		for i from 0 to n:
+			for j from 0 to min(i, k):
+				if j == 0 or j == i:
+					C(i,j) = 1;
+				else:
+					C(i, j) = C(i - 1, j - 1) + C(i - 1, j);
+					
+		return C(n, k);
+	\end{lstlisting}
+	\ \\
+	Python code:
+	\begin{lstlisting}[language=Python]
+	def biCoef(n, k):
+		if k < 0 or k > n:
+			return 0
+		
+		C = [[0 for i in range(k + 1)] for i in range(n + 1)]
+		for i in range(n + 1):
+			for j in range(min(i, k) + 1):
+				if j == 0 or j == i:
+					C[i][j] = 1
+				else:
+					C[i][j] = C[i - 1][j - 1] + C[i - 1][j]
+	
+		return C[n][k]
+	\end{lstlisting}
+	\ \\
+	The running time is $O(n * k)$.\\
+	It is efficient but it can be better. We can use below optimization to reduce space use.\\ \\
+	Optimal Python code:
+	\begin{lstlisting}[language=Python]
+	def biCoef(n , k):
+		if k < 0 or k > n:
+			return 0
+		
+		C = [0 for i in range(k + 1)]
+		C[0] = 1
+		
+		for i in range(1, n + 1):
+			j = min(i ,k)
+			while (j > 0):
+				C[j] = C[j] + C[j - 1]
+				j -= 1
+	
+		return C[k]
+	\end{lstlisting}
+	
+\end{sol}
+
+\begin{ex}\em
+\end{ex}
+
+\begin{sol}
+	\ \\ \\
+	Running time is $O(n * k + \text{numberOfBit} ^ 2)$. \\
+	It's not so efficient. Because when $n$ and $k$ are very large, it cost lot of time and space to calculate the result.\\
+	
+\begin{ex}\rm
+\end{ex}
+	
+No such exercise.
+
+\begin{ex}\rm
+\end{ex}
+\emph{Solution:}\\
+The code that uses property of Sierpinski triangle is as follows:
+\begin{lstlisting}[language=python]
+def coeffMod2(n, k):
+	if k < 0 or k > n:
+		return 0
+	if k == 0 and n == 0:
+		return 1
+	nBitLen = n.bit_length()
+	kBitLen = k.bit_length()
+	if n-k >= 1 and n >= 2**max(nBitLen, kBitLen) and k < 2**max(nBitLen, kBitLen):
+		return 0
+	elif k < 2**(nBitLen-1):
+		return coeffMod2(n-2**(nBitLen-1), k)
+	else:
+		return coeffMod2(n-2**(nBitLen-1), k-2**(nBitLen-1))
+\end{lstlisting}
+
+
+\begin{ex}\rm
+\end{ex}
+
+\emph{Solution:}\\
+From the fibonacci's definition: $F_0=0, F_1=1, F_n = F_{n-1} + F_{n-2}(n\geq2)$.\\
+We can infer that if $F_i=F_j,F_{i+1}=F_{j+1}$, then $F_{i+2}=F_{j+2}$.\\
+And naturally, we have the conclusion that if $F_i\equiv F_j(mod~k),F_{i+1}\equiv F_{j+1}(mod~k)$,then $F_{i+2}\equiv F_{j+2}(mod~k)$.\\
+
+For $F_n\prime :=(F_n~mod~k)$, we have known that there must be some $i~and~j(i>j)~between~0~and~k^{2}$ for which $F_i\prime=F_j\prime, F_{i+1}\prime = F_{j+1}\prime$.\\
+So we can infer that $F_{i-1}\prime = F_{j-1}\prime$.\\
+And going on...$F_{i-2}\prime = F_{j-2}\prime$.\\
+...\\
+$F_{i-j+1}\prime = F_{1}\prime$.\\
+$F_{i-j}\prime = F_{0}\prime$.\\
+So we have the cycle from $0 to i-j-1$.\\
+And make $i-j := j$,then we have the conclusion:\\
+For some j we have $F_0\prime=F_j\prime,F_1\prime=F_{j+1}\prime$ and thus $F_{n}\prime=F_{n~mod~j}\prime$\\
+
+\begin{ex}\rm
+\end{ex}
+\emph{Solution:}\\
+Are the lower bounds of the algorithms for computing multiplication and division the  same?
+\end{sol}
+
+\end{document}

@@ -1,9 +1,11 @@
 \documentclass[12pt, notitlepage]{article}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{graphicx}
 \usepackage{amsthm}
 \usepackage{listings}
 \usepackage{color}
+\usepackage{float}
 
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
@@ -138,25 +140,46 @@ Ok,I think what I explain above is quite enough but not explicit. Let's forget i
 
 \begin{ex}\end{ex}
 \begin{sol}
-	
+In quicksort, we use a pivot number randomly chosen to divide the number sequence ito two part. Then we need to do the same quicksort operation on each part and repeat it. But in quickselect, similarly， in each recursion step, we need to divide the sequence into two part, but we only need to do the same quickselect operation on one of them. Which means that, in quickselect, we only need to do "partial execution" in each step of quicksort. Therefore, quickselectcan be viewed as a "partial execution" of quicksort. \\ \\
+We use the sequence \{4, 7, 9, 3, 1, 2, 6, 5, 8\} as an example. The quicksort tree is drawn above.\\
+In order to select the $5th$ number in this sequence, the part in red circle is visited by quickselect.
+\begin{figure}[H]
+	\center
+	\includegraphics[width=0.8\linewidth]{p1.jpg}\vspace{-10pt}
+	\caption{quicksort tree of [4, 7, 9, 3, 1, 2, 6, 5, 8]} \nonumber\label{fig:quicksort tree}\vspace{-10pt}
+\end{figure}
+\end{sol}
+
+
+\begin{ex}\end{ex}
+
+\begin{sol}
+We want $i$ to be the common ancestor of $j$ and $k$. First, we can arbitrarily select $j$ and $k$. However, in order to let $i$ to go between $j$ and $k$, we need to involve a probabilistic factor $\frac{|j - k|+1}{n}$, where $n$ is the total size of $\pi$. Next, we want to select the pivot to be $i$, which means that it has a factor of $\frac{1}{|j-k| + 1}$. Hence, overall we get that:
+\[
+\mathbb{E}[B_{i, j, k}] = \frac{1}{n}
+\]
 \end{sol}
 
 
 \begin{ex}\end{ex}
 \begin{sol}
-	
+From analysis of the search route of SelectSort, we can find that the number of comparisons need to do in SelectSort can be counted by all the $i, j, k$ where k is the argument of SelectSort, s.t. $B_{i, j, k} = 1$. Hence, we can define $C(\pi)$ to be:
+
+\[
+C(\pi) = \sum_{i, j} B_{i, j, k}
+\]
+
 \end{sol}
 
 
 \begin{ex}\end{ex}
 \begin{sol}
-	
-\end{sol}
-
-
-\begin{ex}\end{ex}
-\begin{sol}
-	
+With the equation of $C(\pi)$, we can go to compute the expectation of comparisons:
+\begin{align*}
+\mathbb{E}[C(\pi)] &= \mathbb{E}\left[\sum_{i, j} B_{i, j, k}\right] = \sum_{i, j}\mathbb{E}[N_{i, j, k}] = \\
+&= \sum_{i, j} \frac{1}{n} = n
+\end{align*}
+Thus the expectation of comparison number is simply $n$.
 \end{sol}
 
 \end{document}

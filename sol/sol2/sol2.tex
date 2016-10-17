@@ -5,6 +5,7 @@
 \usepackage{amsthm}
 \usepackage{listings}
 \usepackage{color}
+\usepackage{float}
 
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
@@ -129,12 +130,11 @@ So we have to do $(2^{k-1}+2^{k-2}+...+1)$ = $(2^k-1)$ comparisons to find the b
 
 
 \begin{ex}\end{ex}
-% Seems there's something wrong?
 \begin{sol}
 In quicksort, we use a pivot number randomly chosen to divide the number sequence ito two part. Then we need to do the same quicksort operation on each part and repeat it. But in quickselect, similarly， in each recursion step, we need to divide the sequence into two part, but we only need to do the same quickselect operation on one of them. Which means that, in quickselect, we only need to do "partial execution" in each step of quicksort. Therefore, quickselectcan be viewed as a "partial execution" of quicksort. \\ \\
 We use the sequence \{4, 7, 9, 3, 1, 2, 6, 5, 8\} as an example. The quicksort tree is drawn above.\\
 In order to select the $5th$ number in this sequence, the part in red circle is visited by quickselect.
-\begin{figure}[!htbp]
+\begin{figure}[H]
 	\center
 	\includegraphics[width=0.8\linewidth]{p1.jpg}\vspace{-10pt}
 	\caption{quicksort tree of [4, 7, 9, 3, 1, 2, 6, 5, 8]} \nonumber\label{fig:quicksort tree}\vspace{-10pt}
@@ -142,21 +142,7 @@ In order to select the $5th$ number in this sequence, the part in red circle is 
 \end{sol}
 
 
-
-
 \begin{ex}\end{ex}
-% commented is Hu Hu' sol
-%\begin{sol}
-%	Obviously,\\
-%	$\mathbb{E}[B_{i,j,k}]=\bm{P}(B_{i,j,k}=1)$\\
-%	(Which P(A) means the probability of event A)\\ \\
-%	Notice that $B_{i,j,k}=A_{i,j}\ \&\&\ A_{i,k}$\\ 
-%	(Which $A_{i,j}$ is an indicator variable which is 1 if i is an ancestor of j in the tree T(π), and 0 otherwise as same as in lecture)\\ \\
-%	Then,\\
-%	$\mathbb{E}[B_{i,j,k}]=\bm{P}(A_{i,j}=1\ \&\&\ A_{i,k}=1)$\\
-%	=\ $\bm{P}(A_{i,j}=1)*\bm{P}(A_{i,k}=1)$\\
-%	=\ $\infer{(|i-j|+1)*(|i-k|+1)}{1}$\\
-%\end{sol}
 
 \begin{sol}
 We want $i$ to be the common ancestor of $j$ and $k$. First, we can arbitrarily select $j$ and $k$. However, in order to let $i$ to go between $j$ and $k$, we need to involve a probabilistic factor $\frac{|j - k|+1}{n}$, where $n$ is the total size of $\pi$. Next, we want to select the pivot to be $i$, which means that it has a factor of $\frac{1}{|j-k| + 1}$. Hence, overall we get that:

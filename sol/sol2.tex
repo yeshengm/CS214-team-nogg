@@ -116,8 +116,17 @@ So we have to do $(2^{k-1}+2^{k-2}+...+1)$ = $(2^k-1)$ comparisons to find the b
 
 
 \begin{ex}\end{ex}
-\begin{sol}
-	
+\begin{sol}\\
+\textbf{Analysis:} Since we want to get the worst case, which means at every merge level, when one list runs out for adding, the other must have only one element left. Then we can construct the list in this way, which I prefer to call it \textbf{Interpolation}. Now consider the last merge step's reversion: dividing one list(lenth is n) into two lists(lenth is n/2). The interpolation method is to divide it crossways. Assuming the origin list is range(n), then the two new lists are like: [0, 2, 4, ..., n-2] and [1, 3, 5, ...,n-1].Then let's move on, dividing these two lists into four using the same method.Now we can get[0, 4, ..., n-4], [2, 6, ..., n-2], [1, 5, ...,n-3] and [3, 7, ..., n-1].And so on until each list contains only one element, and then we can get the so-called worst case.\\
+\textbf{Observation:} Let's denote that the origin list is at level 0, and the two lists are at level 1 and so on. Then we can get that: at level i, the span in each list is $2^i$. And the leaves of this tree is at level log(n), which are lists with only one element.\\
+Ok,I think what I explain above is quite enough but not explicit. Let's forget it, I just came up a beautiful and tricky way to construct.\\
+\textbf{Process:} If we regard every list(no matter how many elements in it) as a node, then the whole merge process is a \textbf{Full Binary Tree} ,whose leaves are one number and height is log(n)+1. Each node has a unique route from root to it. If at each inner node, the route is gonna choose the left way, then we denote it as 0, right as 1. Then each route has a unique \textbf{binary code}, which is obviously the index of the leaf node in binary. For example, in range(8), leaf no.0's route code is 000 which means left left left, and leaf no.5's route code is 101 which means right left right.In interpolation method, the list's min element will definitely appear in its left child, and max element in its right child. Then we can use this route code plus elements's span in each level to calculate the exact number of each leaf node.\\
+\begin{enumerate}[(1)]
+\item max=n-1, min=0, span=1, lenth=n, route code=(from $0...0^{logn's}$ to $1...1^{logn's}$), i=logn
+\item check if i is now 0, if it is, goto (4),else goto (3)
+\item if route code[i]=0, then min remains still, span = span*2, lenth = lenth/2, calculate max by $(max-min)/span + 1 = lenth$, i=i-1, else max remains still, span = span*2, lenth=lenth/2, calculate min by $(max-min)/span + 1 = lenth$, i=i-1. Goto (2)
+\item leaf[route code] = min( or max)
+\end{enumerate}
 \end{sol}
 
 

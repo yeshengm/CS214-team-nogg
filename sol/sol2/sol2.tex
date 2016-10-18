@@ -134,7 +134,30 @@ Ok,I think what I explain above is quite enough but not explicit. Let's forget i
 
 \begin{ex}\end{ex}
 \begin{sol}
-	
+Let me introduce two methods to solve this problem:\\
+\textbf{Method 1:}\\
+Let us follow the step we use in class but do more precise work.(Denote that Aii=0 not 1)
+\begin{align*}
+\sum_{i\neq j}^{}\mathbb{E}[A_{ij}]&=\sum_{i\neq j}^{}\frac{1}{|i-j|+1}\\
+&=2\sum_{i=1}^{n}\sum_{l=1}^{n-i+1}\frac{1}{l}-n\\
+&=2*(n*1+(n-1)*\frac{1}{2}+...+2*\frac{1}{n-1}+1*\frac{1}{n})-n\\
+&=2*((n+1)H_n-n))-2n\\
+&=2(n+1)H_n-4n
+\end{align*}
+\textbf{Method 2:}\\
+Let's define that $E_n$ means expected comparisons needed when sorting list with length(n). And since we use kind of shuffle things to choose the pivot, then after  first round comparison, the possibility that the pivot in each position is equal, in other words, $\frac{1}{n}$. And when it's at pos i, then it divides the list into to parts with length{i-1} and {n-i}. Then the total comparison can be represented like this $E_n = E_{i-1}+E_{n-i}+n-1$. In consequence, the expected comparisons is actually $E_n=\frac{1}{n}\sum_{i=1}^{n}(E_{i-1}+E_{n-i}+n-1)$. Now let's do some mathematic things.
+\begin{align*}
+n*E_n&=2(E_1+E_2+...+E_{n-1})+n(n-1) \tag{1}\\
+(n-1)*E_{n-1}&=2(E_1+E_2+...+E_{n-2})+(n-1)(n-2) \tag{2}\\
+nE_n&=(n+1)E_{n-1}+2n-2 \tag{(1)-(2)}\\
+\end{align*}
+Now we can get a series of equations. And then by replacing $E_i$ with $\frac{i+1}{i}E_{i-1}+2-\frac{2}{i}$ until we get:
+\begin{align*}
+E_n&=\frac{n+1}{2}E_{1}+2(1+\frac{n+1}{n}+...+\frac{n+1}{3})-2(\frac{n+1}{n(n+1)}+\frac{n+1}{n(n-1)}+...+\frac{1}{3*2})\\
+&=\frac{n+1}{2}*0+2(n+1)(\frac{1}{3}+\frac{1}{4}+...+\frac{1}{n}+\frac{1}{n+1}-\frac{1}{2}+\frac{1}{n+1})\\
+&=2(n+1)(H_n-2+\frac{2}{n+1})\\
+&=2(n+1)H_n-4n
+\end{align*}
 \end{sol}
 
 

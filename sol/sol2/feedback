@@ -1,0 +1,26 @@
+uEx1
+Yeah it is correct. Actually when n is odd numbers, this is also almost correct.
+
+Ex2
+Correct.
+
+Ex3
+You are providing some evidences, not a full proof. You should proof that for any algorithm, it is intractable.
+
+Ex4
+I think your first construction is correct. You only need one more sentence to say your solution takes that long time.
+
+Ex5
+Correct.
+
+Ex6
+Correct. Glad to see that you mentioned quickselect is a function with k as input, which Dominik didn't mention in Ex6.
+
+Ex7
+I don't think this is correct.
+
+Ex8
+I think so.
+
+Ex9
+Since your Ex7 is incorrect, this is also wrong. Actually this calculation is quite complicate.

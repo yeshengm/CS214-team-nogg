@@ -1,4 +1,4 @@
-sol/*.aux
-sol/*.log
-sol/*.syntex.gz
-sol/*.pdf
+sol/**/*.aux
+sol/**/*.log
+sol/**/*.synctex.gz
+sol/**/*.pdf

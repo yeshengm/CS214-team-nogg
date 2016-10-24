@@ -113,7 +113,9 @@ So we have to do $(2^{k-1}+2^{k-2}+...+1)$ = $(2^k-1)$ comparisons to find the b
 
 \begin{ex}\end{ex}
 \begin{sol}
-\textbf{Analysis:}~Given an array A which contains 3 elements $a_1,a_2,a_3$, and these 3 elements is different from each other. According to the given algorithm, we only need one comparison to find the largest number. However, we can compare two elements one time. And no matter how we choose the elements, there is still one element will not be compared and we cannot know whether it is bigger or smaller. So the algorithm is absolutely wrong.
+\textbf{Analysis:}~The algorithms say that the maximum compare time is n-2.\\
+ There are n numbers, and the only way to access the elements is to take them and compare them pairwise.So for each comparison, no matter which two numbers we choose to compare, we can only eliminate one number that is not the larger number we want. So after n-2 comparisons, there will still be two numbers left, and we won’t know anything about the remaining two numbers so that we can’t find the maximum number in the array.\\
+So the algorithm will certainly fail on certain inputs.
 \end{sol}
 
 

@@ -190,7 +190,7 @@ In order to select the $5th$ number in this sequence, the part in red circle is 
 From analysis of the search route of SelectSort, we can find that the number of comparisons need to do in SelectSort can be counted by all the $i, j, k$ where k is the argument of SelectSort, s.t. $B_{i, j, k} = 1$. Hence, we can define $C(\pi)$ to be:
 
 \[
-C(\pi) = \sum_{i, j} B_{i, j, k}
+C(\pi) = \sum_{\substack{i, j\\i\neq j}} B_{i, j, k}
 \]
 
 \end{sol}
@@ -200,10 +200,19 @@ C(\pi) = \sum_{i, j} B_{i, j, k}
 \begin{sol}
 With the equation of $C(\pi)$, we can go to compute the expectation of comparisons:
 \begin{align*}
-\mathbb{E}[C(\pi)] &= \mathbb{E}\left[\sum_{i, j} B_{i, j, k}\right] = \sum_{i, j}\mathbb{E}[N_{i, j, k}] = \\
-&= \sum_{i, j} \frac{1}{n} = n
+\mathbb{E}[C(\pi)] &= \mathbb{E}\left[\sum_{i\neq j} B_{i, j, k}\right] = \sum_{i\neq j}\mathbb{E}[B_{i, j, k}]\\
+&= 2 \sum_{i > j}  \mathbb{E}[B_{i, j, k}] = 2(\sum_{\substack{i>j\\1\leq k\leq j}}\mathbb{E}[B_{i, j, k}] + \sum_{\substack{i>j\\j\leq k\leq i}}\mathbb{E}[B_{i, j, k}] + \sum_{\substack{i>j\\i\leq k\leq n}}\mathbb{E}[B_{i, j, k}])  \\
+&= 2(\sum_{\substack{i>j\\1\leq k\leq j}}\frac{1}{i-k+1} + \sum_{\substack{i>j\\j\leq k\leq i}}\frac{1}{i - j + 1} + \sum_{\substack{i>j\\i\leq k\leq n}} \frac{1}{k - j + 1}) \\
+&=2(\sum_{i = k+1}^{n}\sum_{j=k}^{i-1}\frac{1}{i-k+1}  +  \sum_{i = k+1}^{n}\sum_{j=1}^{k}\frac{1}{i-j+1}       +
+\sum_{i=2}^{k}\sum_{j=1}^{i-1}\frac{1}{k-j+1}) \\
+&=2\left[ (\sum_{i = 2}^{n-k+1}\frac{i-1}{i}) +
+		   (\frac{(n H_n - H_n) - (k H_k - H_k)}{2} + H_n - H_k) + (\sum_{i = 2}^{i = k}\frac{i-1}{i})\right]\\
+&\text{(The second term of the above derivation is a little tricky, but if you consider a }\\
+&\text{$n\times n$ matrix with each row a harmonic series, it is quite obvious)}\\
+& = 2\left[(n-k+1-H_{n-k+1}) + (\frac{(n+1)H_n - (k+1)H_k}{2} + (k-H_k)\right] \\
+&= 2(n+1) - 2H_{n-k+1} +(n+1)H_n - (k+3)H_k
 \end{align*}
-Thus the expectation of comparison number is simply $n$.
+Thus the expectation of comparison number is calculated as above.
 \end{sol}
 
 \end{document}

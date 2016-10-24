@@ -176,10 +176,11 @@ In order to select the $5th$ number in this sequence, the part in red circle is 
 
 \begin{ex}\end{ex}
 
-\begin{sol}
-We want $i$ to be the common ancestor of $j$ and $k$. First, we can arbitrarily select $j$ and $k$. However, in order to let $i$ to go between $j$ and $k$, we need to involve a probabilistic factor $\frac{|j - k|+1}{n}$, where $n$ is the total size of $\pi$. Next, we want to select the pivot to be $i$, which means that it has a factor of $\frac{1}{|j-k| + 1}$. Hence, overall we get that:
+\begin{sol}\\
+
+\qquad We want $i$ to be the common ancestor of $j$ and $k$. Consider a sequence which include i, j, k. If we want i be the ancestor of j and k, and assumed i $<$ j $<$ k, we must make sure that the pivot number we choose is j. It means that the pivot we choose must be the second big number in i, j, k.
 \[
-\mathbb{E}[B_{i, j, k}] = \frac{1}{n}
+\mathbb{E}[B_{i, j, k}] = \frac{1}{max\{i,j,k\}-min\{i,j,k\}+1}
 \]
 \end{sol}
 

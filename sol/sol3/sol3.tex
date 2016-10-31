@@ -81,9 +81,36 @@
 {\bf\small CS214: Algorithms and Complexity}\hfill{\bf\small 2016 Fall}
 {\let\newpage\relax\maketitle}
 
-
-\begin{ex}\end{ex}
+\textbf{Exercise 10.}
 \begin{sol}\\
+There are two connected components, so we can just count the spanning tree number of each connected component, and the spanning forests number is the multiplication of every spanning tree's number.\\
+Considering the first graph, there are 2 x 3 = 6 spanning trees.\\
+Considering the second graph, there are 5 spanning trees.\\
+Totally, there are 5 x 6 = 30 spanning forests.\\
+\end{sol}
+
+\textbf{Exercise 11.}
+\begin{sol}\\
+Firstly, let's recall the procedure of Kruskal algorithm. Step by step, we choose the most cheapest edges, and check whether adding it to the answer will cause a cycle. If not causing a cycle, we will add it to the final graph, which is a minimum spanning tree.\\
+Considering the graph that has edges whose weights are the same. We will find that we must check every edge with same weight.\\
+Based on the finding above, we can gather the edges with same weight as a new graph, and every time, we just add one of the spanning tree of this graph to the answer and check whether there is a tree. After trying every possible spanning tree, we will get several possible answers. And finally we will get many minimum spanning tree.\\
+So according to the problem, we have the algorithm that can calculate the spanning tree number of multigraph in polynomial time. So every time we consider the sets of edges with same weight, we can calculate the number of spanning tree in polynomial time.\\
+So in the worst case, we will need n * polynomial-time(n is the edge number). And it is still polynomial-time algorithm.\\
+For example: we have the following weighted graph.\\
+\begin{figure}[H]
+	\center
+	\includegraphics[width=0.4\linewidth]{11-1.png}\vspace{-10pt}
+	\caption{the weighted graph} \nonumber\label{fig:the weighted graph}\vspace{-10pt}
+\end{figure}
+At the first step, there are 3 edges with weight 5, and there are 3 spanning of this multigraph.\\
+\begin{figure}[H]
+	\center
+	\includegraphics[width=0.4\linewidth]{11-2.png}\vspace{-10pt}
+	\caption{the multigraph of edge with weight 5} \nonumber\label{fig:the weighted graph2}\vspace{-10pt}
+\end{figure}
+And we will add edge with weight 6. And we can get the spanning tree.\\
+So we figure out that there are 3 minimum spanning tree.\\
+
 \end{sol}
 
 \end{document}

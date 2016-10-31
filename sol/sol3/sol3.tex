@@ -82,8 +82,30 @@
 {\let\newpage\relax\maketitle}
 
 
-\begin{ex}\end{ex}
-\begin{sol}\\
-\end{sol}
+\textbf{Exercise 1}
+\begin{enumerate}
+\item
+
+\begin{defi}[Cut Lemma]
+\vspace{-0.85cm}
+Suppose edge set $X$ is good, pick any vertex set $S\subseteq V$ s.t. there is no edge goes from $S$ to $V\backslash S$. Let $e\in E$ be the edge going from $S$ to  $V\backslash X$ with the cheapest weight, then $X\cup \{e\}$ is also good.
+\end{defi}
+\begin{proof}
+	\mbox{ }
+\begin{enumerate}[(1)]
+	\item If the cheapest edge $e$ happens to be in the tree $T$, then the case is trivial.
+	\item If the cheapest edge $e$ is not in the tree $T$, since $T$ is already a tree, adding any edge to it will result in a circle and there must exist another edge $e'$ which also goes from $S$ to  $V\backslash X$. If we remove this edge $e'$, we will get another graph $T' = T\cup \{e\} -\{e'\}$. Next, we are going to prove that it is also a minimum spanning tree.
+	\begin{enumerate}[(a)]
+		\item First, we prove that $T'$ is a tree. Since $T$ is a tree, adding a edge to it will form a circle. Then we remove the  edge $e'$ from $T\cup\{e\}$ where $e'$ is part of a circle and removing it will not disconnect the graph, hence $T' = T\cup\{e\} - e'$ is also connected. On the other hand, in the connected graph $T'$, $|E|-|V| = 1$, therefore $T'$ is a tree.
+		\item Next, we prove that $T'$ is a minimum spanning tree. Since substitute $e'$ for $e$ will not affect spanning property of minimum spanning tree, all we need to prove is it takes minimum weight. From the equation $weight(T') = weight(T)-w(e)+w(e')$, since $e'$ is chosen to be the edge with minimum weight, thus $weight(T') < weight(T)$. Therefore $T'$ is a minimum spanning tree.
+		
+	\end{enumerate}
+\end{enumerate}
+Combine (1) and (2), cut lemma is proved.
+\end{proof}
+
+
+\end{enumerate}
+
 
 \end{document}

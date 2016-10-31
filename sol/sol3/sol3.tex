@@ -146,22 +146,19 @@ Combine (1) and (2), cut lemma is proved.\\\\
 	\end{enumerate}
 	To sum up, we can always construct a cut $S$ that meets the conditions in reverse cut lemma. Therefore, this lemma is proved.\\
 \end{proof}
-
-\item 
 \end{enumerate}
-
 
 \textbf{Exercise 4}
 \begin{enumerate}
-\item
-\item
-\textbf{If:}\\
-Proof by contradiction. Assuming that u and v are connected in $G_c$, but not connected in $T_c$, which means two things:\\
-1. In T, there exists at least one edge with weight more than c in the route from u to v. \\
-2. In $G_c$, there is more than one routes from u to v with all edges' weight less than or equal to c.\\
-It's obvious that the special edge in 1 is not within $G_c$.Then according to the construction process of MST T using Kruskal algorithm,  if there is no cycle, then we first add the lowest-weight edge into the MST. So since the special edge is of more weight than all the edges in the routes of Gc which connect u and v, then it shouldn't be added into T until one route from u to v is constructed. Then we can know that in MST T, u and v are connected.\\
-\textbf{Only if:}\\
-Since $T_c$ is a subset of $G_c$, then if u,v are connected in $T_c$, then it is connected in $G_c$.
+	\item
+	\item
+	\textbf{If:}\\
+	Proof by contradiction. Assuming that u and v are connected in $G_c$, but not connected in $T_c$, which means two things:\\
+	1. In T, there exists at least one edge with weight more than c in the route from u to v. \\
+	2. In $G_c$, there is more than one routes from u to v with all edges' weight less than or equal to c.\\
+	It's obvious that the special edge in 1 is not within $G_c$.Then according to the construction process of MST T using Kruskal algorithm,  if there is no cycle, then we first add the lowest-weight edge into the MST. So since the special edge is of more weight than all the edges in the routes of Gc which connect u and v, then it shouldn't be added into T until one route from u to v is constructed. Then we can know that in MST T, u and v are connected.\\
+	\textbf{Only if:}\\
+	Since $T_c$ is a subset of $G_c$, then if u,v are connected in $T_c$, then it is connected in $G_c$.
 \end{enumerate}
 
 \vspace{1cm}
@@ -182,4 +179,31 @@ Next, we prove that the numbers of edges added to the same vertex set at each st
 Combine the above two, we can prove that two different minimum spanning trees has the same set of edge length and the numbers of edges with same weight are the same for different MSTs, which is a stronger result than the lemma.
 \end{proof}
 \end{enumerate}
+
+
+\textbf{Exercise 8}\\
+\begin{proof}
+	\ \\
+	Supposed there are two MST $T$ and $T'$ of the same graph $G$.\\
+	Then:
+	\begin{equation*}
+		\sum_{i=1}^{n-1}e_i=\sum_{i=1}^{n-1}e'_i\ \ \ \ (e_i\in E(T), e'_i\in E(T'))
+	\end{equation*}\
+	\begin{equation*}
+		|E(T)|=|E(T')|=n-1
+	\end{equation*}
+	
+	\qquad According to the question, if no two edges of G have the same weight. Assumed $T$ and $T'$ is not the same tree.
+	\begin{equation*}
+		T:\ e_1, e_2, ..., e_{n-1}\ \ \ (|e_1|<|e_2|<...<|e_n|)
+	\end{equation*}
+	\begin{equation*}
+		T':\ e'_1, e'_2, ..., e'_{n-1}\ \ \ (|e'_1|<|e'_2|<...<|e'_n|)
+	\end{equation*}
+	\qquad Due to they are different and $G$ has no same weight edge, there must be $e_i<e'_i$ and with the $e$ and $e_i$ less than $e_i$ is all same. Given $c=e_i$ then $m_c(T) < m_c(T')$, which contradicts the lemma proved in the last exercise. So it is impossible.
+	
+	\qquad Hence, $T$ and $T'$ is the same. This lemma is proved.\\
+	\end{proof}
+
+
 \end{document}

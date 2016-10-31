@@ -93,11 +93,14 @@ Suppose edge set $X$ is good, pick any vertex set $S\subseteq V$ s.t. there is n
 	\mbox{ }
 \begin{enumerate}[(1)]
 	\item If the cheapest edge $e$ happens to be in the tree $T$, then the case is trivial.
-	\item If the cheapest edge $e$ is not in the tree $T$, since $T$ is already a tree, adding any edge to it will result in a circle and there must exist another edge $e'$ which also goes from $S$ to  $V\backslash X$. If we remove this edge $e'$, we will get another graph $T' = T\cup \{e\} -\{e'\}$. Next, we are going to prove that it is also a minimum spanning tree.
+	\item If the cheapest edge $e$ is not in the tree $T$, since $T$ is already a tree, adding any edge to it will result in a circle and there must exist another edge $e'$ which also goes from $S$ to  $V\backslash X$. If we remove this edge $e'$, we will get another graph $T' = T\cup \{e\} -\{e'\}$. A sample graph is shown in Fig.1. Next, we are going to prove that it is also a minimum spanning tree.
+	\begin{figure}[H]\centering
+	\includegraphics[width=7cm]{1.png}
+	\caption{Picture to illustrate the cut lemma}
+	\end{figure}
 	\begin{enumerate}[(a)]
 		\item First, we prove that $T'$ is a tree. Since $T$ is a tree, adding a edge to it will form a circle. Then we remove the  edge $e'$ from $T\cup\{e\}$ where $e'$ is part of a circle and removing it will not disconnect the graph, hence $T' = T\cup\{e\} - e'$ is also connected. On the other hand, in the connected graph $T'$, $|E|-|V| = 1$, therefore $T'$ is a tree.
-		\item Next, we prove that $T'$ is a minimum spanning tree. Since substitute $e'$ for $e$ will not affect spanning property of minimum spanning tree, all we need to prove is it takes minimum weight. From the equation $weight(T') = weight(T)-w(e)+w(e')$, since $e'$ is chosen to be the edge with minimum weight, thus $weight(T') < weight(T)$. Therefore $T'$ is a minimum spanning tree.
-		
+		\item Next, we prove that $T'$ is a minimum spanning tree. Since substitute $e'$ for $e$ will not affect spanning property of minimum spanning tree, all we need to prove is it takes minimum weight. From the equation $weight(T') = weight(T)-w(e)+w(e')$, since $e'$ is chosen to be the edge with minimum weight, thus $weight(T') < weight(T)$. Therefore $T'$ is a minimum spanning tree.		
 	\end{enumerate}
 \end{enumerate}
 Combine (1) and (2), cut lemma is proved.\\\\
@@ -161,4 +164,22 @@ It's obvious that the special edge in 1 is not within $G_c$.Then according to th
 Since $T_c$ is a subset of $G_c$, then if u,v are connected in $T_c$, then it is connected in $G_c$.
 \end{enumerate}
 
+\vspace{1cm}
+\textbf{Exercise 7}
+\begin{enumerate}[1.]
+\item 
+\item
+\begin{proof}
+Considering Kruskal algorithm, we can prove this by induction on the lemma that if at one state of Kruskal algorithm two spanning trees have the same vertex set, then after adding all the edges with same length, the current vertex sets of the two ``good'' tree and the number of added edges are the same.
+
+First, we prove that the vertex sets at each stage are the same.
+\begin{enumerate}[(1)]
+\item For the beginning state, the only vertex set is $\emptyset$, thus the lemma holds for initial state.
+\item Suppose at one stage of Kruskal algorithm, there are two vertex sets $V_1 = V_2$. After adding all edges with the minimum weight $a$ that will no lead to circles, we have vertex sets ${V_1}'$ and ${V_2}'$. Suppose ${V_1}'$ and and ${V_2}'$ are not the same, consider vertices in  ${V_1}' - {V_2}'$, we can connect vertices in $V_2$ to ${V_1}' - {V_2}'$ via vertices in ${V_1}'\cap {V_2}'$. Thus $({V_1}' - {V_2}')\cap {V_2}'$ is not empty, which is obviously contradictory.
+\end{enumerate}
+Next, we prove that the numbers of edges added to the same vertex set at each stage are the same. First, not considering the circles, we add all the edges with the least weight at current stage. Since the original ``good'' graph $\{V, E\}$ in the vertex  set is a tree, adding edges of least weight to it will lead to same number of $n$ circles. To remove $n$ circles from a graph $G$, we need to remove $n$ edges. Hence the total number of added edges at this stage are the same.
+
+Combine the above two, we can prove that two different minimum spanning trees has the same set of edge length and the numbers of edges with same weight are the same for different MSTs, which is a stronger result than the lemma.
+\end{proof}
+\end{enumerate}
 \end{document}

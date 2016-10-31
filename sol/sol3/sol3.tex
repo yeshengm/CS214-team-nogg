@@ -170,13 +170,16 @@ Combine (1) and (2), cut lemma is proved.\\\\
 		|E(T)|=|E(T')|=n-1
 	\end{equation*}
 	
-	According to the question, if no two edges of G have the same weight. Assumed $T$ and $T'$ is not the same tree.
+	\qquad According to the question, if no two edges of G have the same weight. Assumed $T$ and $T'$ is not the same tree.
+	\begin{equation*}
+		T:\ e_1, e_2, ..., e_{n-1}\ \ \ (|e_1|<|e_2|<...<|e_n|)
+	\end{equation*}
+	\begin{equation*}
+		T':\ e'_1, e'_2, ..., e'_{n-1}\ \ \ (|e'_1|<|e'_2|<...<|e'_n|)
+	\end{equation*}
+	\qquad Due to they are different and $G$ has no same weight edge, there must be $e_i<e'_i$ and with the $e$ and $e_i$ less than $e_i$ is all same. Given $c=e_i$ then $m_c(T) < m_c(T')$, which contradicts the lemma proved in the last exercise. So it is impossible.
 	
-	\qquad $T:\ e_1, e_2, ..., e_{n-1}\ \ \ (|e_1|<|e_2|<...<|e_n|)$
-	
-	\qquad $T':\ e'_1, e'_2, ..., e'_{n-1}\ \ \ (|e'_1|<|e'_2|<...<|e'_n|)$\\
-	Due to they are different and $G$ has no same weight edge, there must be $e_i<e'_i$ and with the $e$ and $e_i$ less than $e_i$ is all same. Given $c=e_i$ then $m_c(T) < m_c(T')$, which contradicts the lemma proved in the last exercise. So it is impossible.\\
-	Hence, $T$ and $T'$ is the same. This lemma is proved.\\
+	\qquad Hence, $T$ and $T'$ is the same. This lemma is proved.\\
 	\end{proof}
 
 

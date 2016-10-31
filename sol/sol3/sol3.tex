@@ -101,7 +101,48 @@ Suppose edge set $X$ is good, pick any vertex set $S\subseteq V$ s.t. there is n
 		
 	\end{enumerate}
 \end{enumerate}
-Combine (1) and (2), cut lemma is proved.
+Combine (1) and (2), cut lemma is proved.\\\\
+\end{proof}
+
+\item 
+\begin{proof}
+	\mbox{ }
+	
+	\qquad To prove this lemma, we construct a situation that meets the conditions of this lemma. And then we will prove that it must exist. In the following, we will illustrate that how we construct it and prove it must exit.
+	
+	\textbf{The construct process}
+	\begin{enumerate}[(1)]
+		\item Construct the initial cut $S$\\
+		We divided X to different connected sets $X_1,X_2,...X_n$. Then consider the following situations, we will construct a connected initial cut $S$ which includes only one vertex of the given edge $e$ and no edge from $X$ crosses it.
+		\begin{enumerate}[a.]
+			\item If only one vertex of the given edge $e$ is in a $X_i$, then we construct the initial cut $S$ with vertice in $X_i$.
+			\item If two vertice of $e$ are in $X_i$ and $X_j$, then we can construct initial $S$ with vertice in $X_i$ or $X_j$.
+			\item If none of vertice of $e$ it in any $X_i$. Then choose any $X_i$, there must be a route $g$ in MST connects $e$ and $X_i$. Here we construct initial $S$ with vertice in route $g$(include one vertex of $e$) and $X_i$. If $g$ goes through any other $X_j$, add it to $S$.
+		\end{enumerate}
+		\item Update the cut $S$\\
+		We update the initial $S$ constructed in (1), then we will ensure that $e$ is the minimum weight edge of $G$ crossing this cut.
+		\begin{enumerate}[a.]
+			\item Find the minimum weight edge $f$ crossing $S$ to $V\backslash X$. 
+			\item If $f$ is not $e$, add the other vertex of $f$ to $S$.If the other vertex of $f$ is included in other $X_j$, add the whole vertice in $X_j$ to $S$. Return to step a.\\
+			According to \textbf{Cut Lemma}, $f$ must belongs to $E(T)$. And the $S$ must be connected all the time we add vertex to it. \\
+			Here are 2 situations we should consider. 
+			\begin{enumerate}[I.]
+				\item The other vertex of $f$ is the other vertex of $e$. As the picture shown blow. Here $f$ and $e$ are all belong to $E(T)$, and vertice in $S$ are connected by edge in $E(T)$, so it must be a cycle in $E(T)$, which is impossible.
+				\begin{figure}[H]
+					\center
+					\includegraphics[width=0.6\linewidth]{p1.jpg}\vspace{-5pt}\nonumber
+				\end{figure}
+				\item The other vertex of $e$ is in the $X_j$ that include the other vertex of $f$. As the picture shown below. Here $f$ adn $e$ are all belong to $E(T)$, and vertice in $S$ and $X_j$ are connected by edge in $E(T)$, so it must be a cycle in $E(T)$, which is impossible.
+				\begin{figure}[H]
+					\center
+					\includegraphics[width=0.6\linewidth]{p2.jpg}\vspace{-5pt}\nonumber
+				\end{figure}
+			\end{enumerate}
+			\item If $f$ is $e$, stop.
+			Here, for cut $S$, there is no edge from $X$ crosses it. And $e$ is a minimum weight edge of $G$ crossing this cut.
+		\end{enumerate}
+	\end{enumerate}
+	To sum up, we can always construct a cut $S$ that meets the conditions in reverse cut lemma. Therefore, this lemma is proved.\\
 \end{proof}
 
 

@@ -145,6 +145,19 @@ Combine (1) and (2), cut lemma is proved.\\\\
 \end{proof}
 \end{enumerate}
 
+\textbf{Exercise 4}
+\begin{enumerate}
+	\item
+	\item
+	\textbf{If:}\\
+	Proof by contradiction. Assuming that u and v are connected in $G_c$, but not connected in $T_c$, which means two things:\\
+	1. In T, there exists at least one edge with weight more than c in the route from u to v. \\
+	2. In $G_c$, there is more than one routes from u to v with all edges' weight less than or equal to c.\\
+	It's obvious that the special edge in 1 is not within $G_c$.Then according to the construction process of MST T using Kruskal algorithm,  if there is no cycle, then we first add the lowest-weight edge into the MST. So since the special edge is of more weight than all the edges in the routes of Gc which connect u and v, then it shouldn't be added into T until one route from u to v is constructed. Then we can know that in MST T, u and v are connected.\\
+	\textbf{Only if:}\\
+	Since $T_c$ is a subset of $G_c$, then if u,v are connected in $T_c$, then it is connected in $G_c$.
+\end{enumerate}
+
 \textbf{Exercise 8}\\
 \begin{proof}
 	\ \\
@@ -166,21 +179,6 @@ Combine (1) and (2), cut lemma is proved.\\\\
 	Hence, $T$ and $T'$ is the same. This lemma is proved.\\
 	\end{proof}
 
-<<<<<<< HEAD
-	
-=======
-\textbf{Exercise 4}
-\begin{enumerate}
-\item
-\item
-\textbf{If:}\\
-Proof by contradiction. Assuming that u and v are connected in $G_c$, but not connected in $T_c$, which means two things:\\
-1. In T, there exists at least one edge with weight more than c in the route from u to v. \\
-2. In $G_c$, there is more than one routes from u to v with all edges' weight less than or equal to c.\\
-It's obvious that the special edge in 1 is not within $G_c$.Then according to the construction process of MST T using Kruskal algorithm,  if there is no cycle, then we first add the lowest-weight edge into the MST. So since the special edge is of more weight than all the edges in the routes of Gc which connect u and v, then it shouldn't be added into T until one route from u to v is constructed. Then we can know that in MST T, u and v are connected.\\
-\textbf{Only if:}\\
-Since $T_c$ is a subset of $G_c$, then if u,v are connected in $T_c$, then it is connected in $G_c$.
-\end{enumerate}
 
->>>>>>> 8c9047dbf021d6906832a99d4b314563ac36e51e
+
 \end{document}

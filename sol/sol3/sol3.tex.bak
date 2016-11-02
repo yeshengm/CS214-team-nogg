@@ -156,17 +156,7 @@ Combine (1) and (2), cut lemma is proved.\\\\
 	\center
 	\includegraphics[width=0.4\linewidth]{4-1.png}\vspace{-10pt}
 	\caption{4-1} \nonumber\label{fig:4-1}\vspace{-10pt}
-    \end{figure}
-    \begin{figure}[H]
-	\center
-	\includegraphics[width=0.4\linewidth]{4-2.png}\vspace{-10pt}
-	\caption{4-2} \nonumber\label{fig:4-2}\vspace{-10pt}
-    \end{figure}
-    \begin{figure}[H]
-	\center
-	\includegraphics[width=0.4\linewidth]{4-3.png}\vspace{-10pt}
-	\caption{4-3} \nonumber\label{fig:4-3}\vspace{-10pt}
-    \end{figure}
+\end{figure}
 	\item
 	\textbf{If:}\\
 	Proof by contradiction. Assuming that u and v are connected in $G_c$, but not connected in $T_c$, which means two things:\\

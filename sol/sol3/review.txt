@@ -1,0 +1,14 @@
+Ex1:
+Minor: V\X -> V\S
+
+Ex2:
+TOOOOOO LONG! Anyway I think this is also correct.
+
+Ex4:
+I think in 2, it is at least 1 instead of more than 1. There is something else I think is not correct: T is some MST instead of a MST constructed by Kruscal. Do not think about any algorithm generating MST, think about MST itself.
+
+Ex7:
+The same comments as in Ex4, namely consider MST itself instead of generated from any algorithm.
+
+Ex10:
+I think this number is incorrect...

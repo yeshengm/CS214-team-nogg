@@ -93,7 +93,7 @@ Suppose edge set $X$ is good, pick any vertex set $S\subseteq V$ s.t. there is n
 	\mbox{ }
 \begin{enumerate}[(1)]
 	\item If the cheapest edge $e$ happens to be in the tree $T$, then the case is trivial.
-	\item If the cheapest edge $e$ is not in the tree $T$, since $T$ is already a tree, adding any edge to it will result in a circle and there must exist another edge $e'$ which also goes from $S$ to  $V\backslash X$. If we remove this edge $e'$, we will get another graph $T' = T\cup \{e\} -\{e'\}$. A sample graph is shown in Fig.1. Next, we are going to prove that it is also a minimum spanning tree.
+	\item If the cheapest edge $e$ is not in the tree $T$, since $T$ is already a tree, adding any edge to it will result in a circle and there must exist another edge $e'$ which also goes from $S$ to  $V\backslash S$. If we remove this edge $e'$, we will get another graph $T' = T\cup \{e\} -\{e'\}$. A sample graph is shown in Fig.1. Next, we are going to prove that it is also a minimum spanning tree.
 	\begin{figure}[H]\centering
 	\includegraphics[width=7cm]{1.png}
 	\caption{Picture to illustrate the cut lemma}

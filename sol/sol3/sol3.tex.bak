@@ -156,7 +156,17 @@ Combine (1) and (2), cut lemma is proved.\\\\
 	\center
 	\includegraphics[width=0.4\linewidth]{4-1.png}\vspace{-10pt}
 	\caption{4-1} \nonumber\label{fig:4-1}\vspace{-10pt}
-\end{figure}
+    \end{figure}
+    \begin{figure}[H]
+	\center
+	\includegraphics[width=0.4\linewidth]{4-2.png}\vspace{-10pt}
+	\caption{4-2} \nonumber\label{fig:4-2}\vspace{-10pt}
+    \end{figure}
+    \begin{figure}[H]
+	\center
+	\includegraphics[width=0.4\linewidth]{4-3.png}\vspace{-10pt}
+	\caption{4-3} \nonumber\label{fig:4-3}\vspace{-10pt}
+    \end{figure}
 	\item
 	\textbf{If:}\\
 	Proof by contradiction. Assuming that u and v are connected in $G_c$, but not connected in $T_c$, which means two things:\\
@@ -170,7 +180,16 @@ Combine (1) and (2), cut lemma is proved.\\\\
 \vspace{1cm}
 \textbf{Exercise 7}
 \begin{enumerate}[1.]
-\item
+\item \mbox{\quad}
+\begin{figure}[H]\centering
+\includegraphics[width=7cm]{7-1.png}\caption{The original graph}
+\end{figure}
+\begin{figure}[H]\centering
+	\includegraphics[width=7cm]{7-2.png}\caption{MST for Fig.2}
+\end{figure}
+\begin{figure}[H]\centering
+	\includegraphics[width=7cm]{7-3.png}\caption{Another MST for Fig.2}
+\end{figure}
 \item
 \begin{proof}
 Considering Kruskal algorithm, we can prove this by induction on the lemma that if at one state of Kruskal algorithm two spanning trees have the same vertex set, then after adding all the edges with same length, the current vertex sets of the two ``good'' tree and the number of added edges are the same.

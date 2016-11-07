@@ -171,8 +171,8 @@ Combine (1) and (2), cut lemma is proved.\\\\
 	\textbf{If:}\\
 	Proof by contradiction. Assuming that u and v are connected in $G_c$, but not connected in $T_c$, which means two things:\\
 	1. In T, there exists at least one edge with weight more than c in the route from u to v. \\
-	2. In $G_c$, there is more than one routes from u to v with all edges' weight less than or equal to c.\\
-	It's obvious that the special edge in 1 is not within $G_c$.Then according to the construction process of MST T using Kruskal algorithm,  if there is no cycle, then we first add the lowest-weight edge into the MST. So since the special edge is of more weight than all the edges in the routes of Gc which connect u and v, then it shouldn't be added into T until one route from u to v is constructed. Then we can know that in MST T, u and v are connected.\\
+	2. In $G_c$, there is at least one route from u to v with all edges' weight less than or equal to c.\\
+	Now let's assume that in 1 there is only one break edge(x,y) in the route(It's similar but more complex when there are multiple breaks, but after all they are similar). Define set S containing x and those which are connected to x in $T_c$. Then V/S contains y and those which are connected to y in $T_c$. According to cut-lemma, we know that in G, because edge(x,y) appears in MST T, then edge(x,y) must be the shortest edge from cut S to cut V/S. As a result, in $G_c$, there will be no edge from cut S to cut V/S, then u and v should not be connected. This is a contradiction.\\
 	\textbf{Only if:}\\
 	Since $T_c$ is a subset of $G_c$, then if u,v are connected in $T_c$, then it is connected in $G_c$.
 \end{enumerate}
@@ -228,9 +228,9 @@ To conclude, there is no $c$ s.t. $m_c(T) \neq m_c(T')$, i.e. $m_c(T) = m_c(T')$
 \textbf{Exercise 10.}
 \begin{sol}\\
 There are two connected components, so we can just count the spanning tree number of each connected component, and the spanning forests number is the multiplication of every spanning tree's number.\\
-Considering the first graph, there are 2 x 3 = 6 spanning trees.\\
-Considering the second graph, there are 5 spanning trees.\\
-Totally, there are 5 x 6 = 30 spanning forests.\\
+Considering the first graph, there are 2 x 3 + 1 = 7 spanning trees.\\
+Considering the second graph, there are 2 x 3 + 1 = 7 spanning trees.\\
+Totally, there are 7 x 7 = 49 spanning forests.\\
 \end{sol}
 
 \textbf{Exercise 11.}

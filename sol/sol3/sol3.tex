@@ -192,16 +192,11 @@ Combine (1) and (2), cut lemma is proved.\\\\
 \end{figure}
 \item
 \begin{proof}
-Considering Kruskal algorithm, we can prove this by induction on the lemma that if at one state of Kruskal algorithm two spanning trees have the same vertex set, then after adding all the edges with same length, the current vertex sets of the two ``good'' tree and the number of added edges are the same.
-
-First, we prove that the vertex sets at each stage are the same.
-\begin{enumerate}[(1)]
-\item For the beginning state, the only vertex set is $\emptyset$, thus the lemma holds for initial state.
-\item Suppose at one stage of Kruskal algorithm, there are two vertex sets $V_1 = V_2$. After adding all edges with the minimum weight $a$ that will no lead to circles, we have vertex sets ${V_1}'$ and ${V_2}'$. Suppose ${V_1}'$ and and ${V_2}'$ are not the same, consider vertices in  ${V_1}' - {V_2}'$, we can connect vertices in $V_2$ to ${V_1}' - {V_2}'$ via vertices in ${V_1}'\cap {V_2}'$. Thus $({V_1}' - {V_2}')\cap {V_2}'$ is not empty, which is obviously contradictory.
-\end{enumerate}
-Next, we prove that the numbers of edges added to the same vertex set at each stage are the same. First, not considering the circles, we add all the edges with the least weight at current stage. Since the original ``good'' graph $\{V, E\}$ in the vertex  set is a tree, adding edges of least weight to it will lead to same number of $n$ circles. To remove $n$ circles from a graph $G$, we need to remove $n$ edges. Hence the total number of added edges at this stage are the same.
-
-Combine the above two, we can prove that two different minimum spanning trees has the same set of edge length and the numbers of edges with same weight are the same for different MSTs, which is a stronger result than the lemma.
+We prove this lemma by contradiction. Suppose there exists a $c$ s.t. $m_c(T) \neq m_c(T')$.\\
+First, we can prove that the value of $m_c(T)$ can only decrease when $c$ is equal to some $e_i$ in the graph since the edges in a MST are all edges in the original graph $G$. Therefore we can only consider the case that $c$ is equal to some $e_1$ and W.L.O.G we can sort these edges of a graph by weight.\\
+Next, we prove that if we remove all the edges of weight $c'$ that is previous to $c$ in the sorted edge list, then $m_{c}(T) - m_{c'}(T) = m_{c'}(T') - m_{c'}(T')$. If this does not hold, we will immediately get that the number of connected components in $T'_{c'}$ and $T_{c'}$ are not equal since each removed edge in MST will lead to a new connected component. However, we have proved in lemma 3 that $T_{c'}$ and $G_{c'}$ have the same connected components and $T'_{c'}$ and $G_{c'}$ have the same connected components. Thus  $T_{c'}$ and $T'_{c'}$ have the same number of connected components. These facts lead to a contradiction.\\
+Finally, by mathematical induction on the sorted edge list. we will get that $m_{0}(T) \neq m_{0}(T)$, which means that $0 \neq 0$, which is impossible.\\
+To conclude, there is no $c$ s.t. $m_c(T) \neq m_c(T')$, i.e. $m_c(T) = m_c(T')$ for a graph $G$.
 \end{proof}
 \end{enumerate}
 

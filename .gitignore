@@ -1,3 +1,7 @@
 sol/**/*.aux
 sol/**/*.log
 sol/**/*.synctex.gz
+sol/**/*.tex.bak
+sol/**/*.pdf
+sol/**/*.bbl
+sol/**/*.blg

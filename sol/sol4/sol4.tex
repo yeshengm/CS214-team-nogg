@@ -119,7 +119,15 @@ According to \textbf{Hall's Theorem},  $G$ contains a matching of size $min(|V_1
 \end{sol}\\
 
 
-
+\textbf{Exercise 3}
+\begin{sol}\\
+First, since there is no edge between nodes at the same level, so we can simply regard set $L_i$ and set $L_{i+1}$ as two parts. Then we need to prove that this bipartite graph contains a matching of size $|L_i|=\binom{n}{i}$.\\
+\textbf{OBSERVATION:}\\
+1. $|L_i|\leq |L_{i+1}|$.\\
+2. $\forall v\in L_i$, $|\{u|(v,u)\in E, u\in L_{i+1}\}|=\binom{n-i}{1}$.\\
+3. $\forall v\in L_{i+1}$, $|\{u|(v,u)\in E, u\in L_i\}|=\binom{i+1}{1}$.\\
+Then according to Exercise 2, we know that this bipartite graph contains a matching of size $min(|L_i|,|L_{i+1}|)=|L_i|=\binom{n}{i}$.
+\end{sol}\\
 
 
 \textbf{Exercise 4}
@@ -191,7 +199,32 @@ According to \textbf{Hall's Theorem},  $G$ contains a matching of size $min(|V_1
 \end{sol}
 
 
-
+\textbf{Exercise 7}
+\begin{sol}
+\begin{enumerate}[1.]
+\item
+Graph is given below:
+\begin{figure}[H]\centering
+	\includegraphics[width=7cm]{1.png}
+	\caption{graph with degree constraints which has no feasible orientation}
+\end{figure}
+\item
+\textbf{STATEMENT:} G has no feasible orientation with respect to c if and only if some set $X\subseteq E$ satisfis: $|X|>\sum_{v\in V(X)}c(v)$
+\item
+\textbf{PROOF:} \\
+According to Exercise 6, by constructing a flow network, in which every edge's capacity is 1 and every vertex has as many copies as its degree constraint, or constructing a bipartite graph, we can reduce the problem about finding a feasible orientation to a problem about finding a max flow or a maximum matching which contains all the edges.\\
+Like this:
+\begin{figure}[H]\centering
+	\includegraphics[width=12cm]{2.png}
+	\caption{Using exercise 6's example to construct a flow network}
+\end{figure}
+\begin{figure}[H]\centering
+	\includegraphics[width=12cm]{3.png}
+	\caption{Using exercise 6's example to construct a bipartite graph}
+\end{figure}
+Then use Hall's Therrem. In bipartite graph $G'(E,V')$($V'$ is the vertex set containing all the copies of vertex in origin graph G), if there is no matching of size $|E|$, then some set $X\subseteq E$ has $|X|>|\Gamma(X)|$. It's obvious that in this bipartite graph, $\Gamma(X)$ contains all the vertices(and their copies) which is contained in some edge in set X. In other word, we get $|X|>\sum_{v\in V(X)}c(v)$. Vice Versa.
+\end{enumerate}
+\end{sol}\\
 
 \textbf{Exercise 8}
 \begin{sol}\\

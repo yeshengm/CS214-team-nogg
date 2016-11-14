@@ -1,0 +1,9 @@
+there have been some ambiguities about Homework 4:
+
+Question: Exercise 1. Do the two flow exist at the same time ? (there are no conflicts between these two flows)
+
+Answer: Nobody says these two flows do have to exist at the same time. If I say "6 and 4 both divide 12" I don't mean they divide 12 "at the same time", which would mean that 24 divides 12. When I say "there exists an s-r-flow of value k and an r-t-flow of value k" I mean it literally. There exists an s-r-flow f_1 (satisfying all flow axioms) and an r-t-flow f_2 (satisfying all flow axioms). Nobody says anything about whether f_1 + f_2 satisfies anything...
+
+Question: Exercise 3: We think that it should be i < ⎡n/2⎤ (ceiling), so that Li would never be the middle one (even-dimensional).
+
+Answer: Yes, this is indeed a mistake on the exercise sheet. For n=2 there is of course no matching between L1 and L2 of size 2. It should read i < ceil(n/2).

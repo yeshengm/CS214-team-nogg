@@ -81,10 +81,47 @@
 {\bf\small CS214: Algorithms and Complexity}\hfill{\bf\small 2016 Fall}
 {\let\newpage\relax\maketitle}
 
+\textbf{Exercise 1}
 \begin{sol}
-    We can get the flow by connecting the two flows from s to r and from r to t through the node r, then the new flow meets the condition:
-    f(u,v) $\leq$ c(u,v),$\forall$ u,v $\in$ V, and f(u,v) = -f(v,u),$\forall$ u,v $\in$ V; and $\sum_{w}$ f(r,w) = k + (-k) = 0; So the new flow meets all the three conditions.
-\end{sol}
+	
+\qquad If there are intersections of s-r-flow and r-t-flow, then there must be circles which contains $r$. Remove these circles and it won't change the flow value form $s$ to $t$. Thus, this lemma is proved. 
+
+\end{sol}\\
+
+\textbf{Exercise 2}
+\begin{sol}\\
+At first, we need to prove \textbf{Hall's Theorem}.\\
+\textbf{Hall's Theorem}: A bipartite graph $G$ with vertex sets $V_1$ and $V_2$ contains a complete matching
+from $V_1$ to $V_2$ if and only if it satisfies Hall’s condition\\
+\centerline{$|\Gamma (S)| >= |S|\ for\ every\ S \subset V$}
+\begin{proof}
+First, we observe that Hall’s condition is clearly necessary. To prove that it is also sufficient, we use induction on $m$. The theorem is true for $m = 1$, so assume that $G$ satisfies Hall’s condition and that $m = |V1| >= 2$.
+
+\qquad \textbf{Case 1.}Suppose that for all proper subsets $S _6 \neq \O$ of $V_1$,\\
+\centerline{$|\Gamma(S)| >= |S| + 1$}
+Then we can start with an arbitrary edge $e = v_1v_2 \in E$, and put $e$ in $M$. The graph $G_0 = G- \{v_1, v_2\}$ satisfies Hall’s condition, so we can complete the matching by induction.
+
+\qquad \textbf{Case 2.}Suppose that for some proper subset $T \neq \O$ of $V_1$,\\
+\centerline{$|\Gamma (T)| = |T|$}
+Applying the induction hypothesis to $G' = G[T \cup \Gamma (T)]$ and $G'' = G[(V1 \backslash T) \cup (V2 \backslash \Gamma (T))]$, we obtain two disjoint matchings containing $|T|$ and $m-|T|$ edges respectively, whose union is a complete matching from $V_1$ to $V_2$.
+\end{proof}
+
+Then, we'll prove this exercise.\\
+Assume that $|V_1| <= |V_2|$. Because $|V_1|*d_1 = |V_2|*d_2$, so $d_1 >= d_2$.\\
+For any vertex subset $V_1'$ that $V_1'\subset V_1$, the neighbor set of $V_1'$ is $\Gamma (V_1')$. Then there must be 
+\centerline{$|V_1'|*d_1 = \sum\limits^{|\Gamma (V_1')|}_{i=1}d_i$}
+where $d_i$ is the number of edges that connect to the vertice in $V_1'$.\\
+Because $d_i <= d_2$, so\\ 
+\centerline{$|V_1'|*d_1 = \sum\limits^{|\Gamma (V_1')|}_{i=1}d_i <= |\Gamma (V_1')| * d_2$}
+Because of $d_1 >= d_2$ that mentioned above, then $|V_1'| <= |\Gamma (V_1')|$.\\
+According to \textbf{Hall's Theorem},  $G$ contains a matching of size $min(|V_1|, |V_2|)$
+
+\end{sol}\\
+
+\textbf{Exercise 8}
+\begin{sol}\\
+	
+\end{sol}\\
 
 \end{document}
 

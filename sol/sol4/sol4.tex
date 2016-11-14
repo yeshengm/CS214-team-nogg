@@ -118,6 +118,41 @@ According to \textbf{Hall's Theorem},  $G$ contains a matching of size $min(|V_1
 
 \end{sol}\\
 
+
+
+
+
+\textbf{Exercise 4}
+\begin{sol}
+	\begin{enumerate}[1.]
+		\item Since in this problem, all existing edges will not give any constraint to flow, we can give a infinite capacity for all existing edges. We only need to take care of vertices since for all vertex $u$ there is a vertex capacity $c(u)$ which limits outflow from this vertex.\\
+			To express this constraint with edge capacity, we replace every vertex $v$ with two vertices $v_{in}$ and $v_{out}$, where edge capacity $c_{in\rightarrow out} = c(v)$. Also we need to replace all edge $u\rightarrow v$ with $u_{out}\rightarrow v_{in}$.\\
+			Finally we solve the max flow with edge capacities in this new graph and get the new $s-t$ flow.
+	\item Picture to be inserted
+	\item Similar to previously introduced technique, we can construct a new graph to solve this problem:
+		\begin{enumerate}[(1)]
+			\item Replace each vertex $v$ with $v_{in}$ and $v_{out}$ and set edge capacity of it to be 1
+			\item Replace each edge $u\rightarrow v$ in the original graph to $u_{out}\rightarrow v_{in}$ in the new graph
+			\item Solve the max flow for the new graph from $s_{out}$ to $t$
+		\end{enumerate}
+		Since the graph construction and max flow can be solved in polynomial time, this solution for vertex disjoint paths can be solved in polynomial time.
+	\end{enumerate}
+\end{sol}
+
+
+\textbf{Exercise 5}
+\begin{sol}
+	We prove this by considering a matching between $L_i$ and $L_{i+1}$. Since $\binom{n}{i}$ is the maximum number of vertices in $L_i$, we only need to prove that there exist such paths.\\
+	For each vertex $v$ in $L_{j}$ where $(i\leq j\leq n-i)$, considering the property of Hamming code, $v$'s neighbor in the next level $L_{j+1}$ should be $\binom{n-j}{1}$. Then for all vertices that belongs to one of the vertex disjoint paths, we can conclude that there exist a matching from these vertices to vertices in $L{i+1}$ from Hall's theorem.\\
+	Thus for each level there is such a matching of size $\binom{n}{i}$. Therefor there are $\binom{n}{i}$ such paths.
+
+\end{sol}
+
+
+
+
+
+
 \textbf{Exercise 8}
 \begin{sol}\\
 	

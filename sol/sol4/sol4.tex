@@ -111,16 +111,29 @@ Assume that $|V_1| <= |V_2|$. Because $|V_1|*d_1 = |V_2|*d_2$, so $d_1 >= d_2$.\
 For any vertex subset $V_1'$ that $V_1'\subset V_1$, the neighbor set of $V_1'$ is $\Gamma (V_1')$. Then there must be 
 \centerline{$|V_1'|*d_1 = \sum\limits^{|\Gamma (V_1')|}_{i=1}d_i$}
 where $d_i$ is the number of edges that connect to the vertice in $V_1'$.\\
-Because $d_i <= d_2$, so\\ 
+Because of $d_i <= d_2$, then\\ 
 \centerline{$|V_1'|*d_1 = \sum\limits^{|\Gamma (V_1')|}_{i=1}d_i <= |\Gamma (V_1')| * d_2$}
-Because of $d_1 >= d_2$ that mentioned above, then $|V_1'| <= |\Gamma (V_1')|$.\\
-According to \textbf{Hall's Theorem},  $G$ contains a matching of size $min(|V_1|, |V_2|)$
+Also because of $d_1 >= d_2$ that mentioned above, then $|V_1'| <= |\Gamma (V_1')|$.\\
+According to \textbf{Hall's Theorem},  $G$ contains a matching of size $min(|V_1|, |V_2|)$.
 
 \end{sol}\\
 
 \textbf{Exercise 8}
 \begin{sol}\\
-	
+We can reduce this problem to a maximum matching problem which is similar to ex6 and ex7.\\
+Firstly, construct the graph as following steps.
+\begin{enumerate}[1.]
+ 	\item Calculate the remained matches that team 1 needs to finish, $m_r = \sum_{i=2}^{n}m_{1,i}$.
+ 	\item Use a vertex to represent a team except team 1. $v_2,v_3,...,v_n$.
+ 	\item Give each vertex the in-degree constraint $c$, where $c_i = m_r + score_1 - score_i$. (Here $c_i$ represents the matches that team $i$ can win in the future in but score should not be more than team 1.)
+ 	\item Use indirect edges to connect these vertice. The number of edges between $v_i$ and $v_j$ is $m_{i,j}$.
+\end{enumerate}
+ 
+Then, the problem is reduced to find a feasible orientation of this graph. That is to say, if we can find a feasible orientation of this graph, then team 1 is possible to be the unique winner. On the contrary, it is impossible.\\
+According to ex6, feasible orientation problem can be reduced to a maximum matching problem, which can be solved in polynomial time.
+
+
+
 \end{sol}\\
 
 \end{document}

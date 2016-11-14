@@ -81,6 +81,10 @@
 {\bf\small CS214: Algorithms and Complexity}\hfill{\bf\small 2016 Fall}
 {\let\newpage\relax\maketitle}
 
-test
+\begin{sol}
+    We can get the flow by connecting the two flows from s to r and from r to t through the node r, then the new flow meets the condition:
+    f(u,v) $\leq$ c(u,v),$\forall$ u,v $\in$ V, and f(u,v) = -f(v,u),$\forall$ u,v $\in$ V; and $\sum_{w}$ f(r,w) = k + (-k) = 0; So the new flow meets all the three conditions.
+\end{sol}
+
 \end{document}
 

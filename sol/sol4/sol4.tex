@@ -86,7 +86,7 @@
 \textbf{Exercise 1}
 \begin{sol}
 	
-\qquad If there are intersections of s-r-flow and r-t-flow, then there must be circles which contains $r$. Remove these circles and it won't change the flow value form $s$ to $t$. Thus, this lemma is proved. 
+\qquad If there are intersections of s-r-flow and r-t-flow, then there must be circles which contains $r$. Remove these circles and it won't change the flow value form $s$ to $t$. Thus, this lemma is proved.
 
 \end{sol}\\
 
@@ -101,7 +101,7 @@ First, we observe that Hall’s condition is clearly necessary. To prove that it
 
 \qquad \textbf{Case 1.}Suppose that for all proper subsets $S _6 \neq \O$ of $V_1$,\\
 \centerline{$|\Gamma(S)| >= |S| + 1$}
-Then we can start with an arbitrary edge $e = v_1v_2 \in E$, and put $e$ in $M$. The graph $G_0 = G- \{v_1, v_2\}$ satisfies Hall’s condition, so we can complete the matching by induction.
+Then we can start with an arbitrary edge $e = v_1v_2 \in E$, and put $e$ in $M$. The graph $G_0 = G- \{v_1, v_2\}$ satisfies Hall ’s condition, so we can complete the matching by induction.
 
 \qquad \textbf{Case 2.}Suppose that for some proper subset $T \neq \O$ of $V_1$,\\
 \centerline{$|\Gamma (T)| = |T|$}
@@ -110,10 +110,10 @@ Applying the induction hypothesis to $G' = G[T \cup \Gamma (T)]$ and $G'' = G[(V
 
 Then, we'll prove this exercise.\\
 Assume that $|V_1| <= |V_2|$. Because $|V_1|*d_1 = |V_2|*d_2$, so $d_1 >= d_2$.\\
-For any vertex subset $V_1'$ that $V_1'\subset V_1$, the neighbor set of $V_1'$ is $\Gamma (V_1')$. Then there must be 
+For any vertex subset $V_1'$ that $V_1'\subset V_1$, the neighbor set of $V_1'$ is $\Gamma (V_1')$. Then there must be
 \centerline{$|V_1'|*d_1 = \sum\limits^{|\Gamma (V_1')|}_{i=1}d_i$}
 where $d_i$ is the number of edges that connect to the vertice in $V_1'$.\\
-Because of $d_i <= d_2$, then\\ 
+Because of $d_i <= d_2$, then\\
 \centerline{$|V_1'|*d_1 = \sum\limits^{|\Gamma (V_1')|}_{i=1}d_i <= |\Gamma (V_1')| * d_2$}
 Also because of $d_1 >= d_2$ that mentioned above, then $|V_1'| <= |\Gamma (V_1')|$.\\
 According to \textbf{Hall's Theorem},  $G$ contains a matching of size $min(|V_1|, |V_2|)$.
@@ -121,7 +121,15 @@ According to \textbf{Hall's Theorem},  $G$ contains a matching of size $min(|V_1
 \end{sol}
 
 
-
+\textbf{Exercise 3}
+\begin{sol}\\
+First, since there is no edge between nodes at the same level, so we can simply regard set $L_i$ and set $L_{i+1}$ as two parts. Then we need to prove that this bipartite graph contains a matching of size $|L_i|=\binom{n}{i}$.\\
+\textbf{OBSERVATION:}\\
+1. $|L_i|\leq |L_{i+1}|$.\\
+2. $\forall v\in L_i$, $|\{u|(v,u)\in E, u\in L_{i+1}\}|=\binom{n-i}{1}$.\\
+3. $\forall v\in L_{i+1}$, $|\{u|(v,u)\in E, u\in L_i\}|=\binom{i+1}{1}$.\\
+Then according to Exercise 2, we know that this bipartite graph contains a matching of size $min(|L_i|,|L_{i+1}|)=|L_i|=\binom{n}{i}$.
+\end{sol}\\
 
 
 \textbf{Exercise 4}
@@ -163,10 +171,75 @@ According to \textbf{Hall's Theorem},  $G$ contains a matching of size $min(|V_1
 
 \end{sol}
 
+\textbf{Exercise 6}
+\begin{sol}
+    \\1.Reduce it to a max flow problem.\\
+    \textbf{Observation.} We have noticed that for a orientation graph, there must be at least a directed edge for each undirected edge. Every directed edge will increase the indegree of a node.\\\\
+    So we came up the following solution:\\
+    Firstly, we number the nodes with 1,2,3...\\
+    Secondly, we number the edges with a,b,c,...\\
+    Thirdly, we draw the picture with two sets, one set is the set of numbers, one set is the set of characters.\\
+    Fourthly, we connect the two sets with directed edge for those joint in the undirected graph. For example, we have a edge named c and its two nodes are 5 and 7, then we add the directed edge from c to 5 and c to 7. All the directed edges are from characters to numbers. And every edge's capacity is 1.\\
+    Fifthly, we add a start node s and the directed edges from s to all the character nodes. These edges' capacity is 2. And we add an end node t and the directed edges from number nodes to t.\\
+    Finally, using the max-flow algorithm to find a max flow of this network, and specially while choosing the next path, we prior choose the path containing the character node which have not been added the the flow.\\
+    And we check the flow to find all the character-number directed flow, and check whether all the character nodes have been included. If not, then there is no feasible orientation, then draw the feasible orientation with the directed edge which is included in the max flow.\\
+    We choose the graph in the problem as an example.\\
+    \begin{figure}[H]
+	\center
+	\includegraphics[width=0.6\linewidth]{6-1.png}\vspace{-10pt}
+	\caption{} \nonumber\label{fig:first graph}\vspace{-10pt}
+    \end{figure}
+    \begin{figure}[H]
+	\center
+	\includegraphics[width=0.6\linewidth]{6-2.png}\vspace{-10pt}
+	\caption{} \nonumber\label{fig:second graph}\vspace{-10pt}
+    \end{figure}
+    And we can get the max flow including b-1, a-2, c-2, d-4.\\So we get the feasible orientation just like in the problem.\\
+    Because finding the max flow has a polynomial-time algorithm, so the whole algorithm is polynomial-time.\\
+    \\2.Reduce it to a maximum matching.\\
+    We can just number the edges and nodes just like above, but there are some differences in constructing the directed graph.\\
+    The first set are just character nodes set, and for the second number set, we just duplicate the node by its indegree size times, for example, if its max indegree is 5, then we get 5 same node in the second set. \\
+    As for adding the edges, just like above.\\
+    Then find the max matching of these graph. If the matching covers all the character node (which is edge), then there is a feasible orientation graph, otherwise there is not such a graph.\\
+    We can still choose the graph in the problem as an example.\\
+    Here is the constructing result.\\
+    \begin{figure}[H]
+	\center
+	\includegraphics[width=0.6\linewidth]{6-3.png}\vspace{-10pt}
+	\caption{} \nonumber\label{fig:third graph}\vspace{-10pt}
+    \end{figure}
+    And we can get the max matching $d-4, b-1, a-2, c-2'$.\\
+    According to the max matching, we can get the feasible orientation graph and vice verse.\\
+    Because finding the max matching has a polynomial-time algorithm, so the whole algorithm is polynomial-time.\\
+\end{sol}
 
 
-
-
+\textbf{Exercise 7}
+\begin{sol}
+\begin{enumerate}[1.]
+\item
+Graph is given below:
+\begin{figure}[H]\centering
+	\includegraphics[width=7cm]{1.png}
+	\caption{graph with degree constraints which has no feasible orientation}
+\end{figure}
+\item
+\textbf{STATEMENT:} G has no feasible orientation with respect to c if and only if some set $X\subseteq E$ satisfis: $|X|>\sum_{v\in V(X)}c(v)$
+\item
+\textbf{PROOF:} \\
+According to Exercise 6, by constructing a flow network, in which every edge's capacity is 1 and every vertex has as many copies as its degree constraint, or constructing a bipartite graph, we can reduce the problem about finding a feasible orientation to a problem about finding a max flow or a maximum matching which contains all the edges.\\
+Like this:
+\begin{figure}[H]\centering
+	\includegraphics[width=12cm]{2.png}
+	\caption{Using exercise 6's example to construct a flow network}
+\end{figure}
+\begin{figure}[H]\centering
+	\includegraphics[width=12cm]{3.png}
+	\caption{Using exercise 6's example to construct a bipartite graph}
+\end{figure}
+Then use Hall's Therrem. In bipartite graph $G'(E,V')$($V'$ is the vertex set containing all the copies of vertex in origin graph G), if there is no matching of size $|E|$, then some set $X\subseteq E$ has $|X|>|\Gamma(X)|$. It's obvious that in this bipartite graph, $\Gamma(X)$ contains all the vertices(and their copies) which is contained in some edge in set X. In other word, we get $|X|>\sum_{v\in V(X)}c(v)$. Vice Versa.
+\end{enumerate}
+\end{sol}\\
 
 \textbf{Exercise 8}
 \begin{sol}\\
@@ -178,7 +251,7 @@ Firstly, construct the graph as following steps.
  	\item Give each vertex the in-degree constraint $c$, where $c_i = m_r + score_1 - score_i$. (Here $c_i$ represents the matches that team $i$ can win in the future in but score should not be more than team 1.)
  	\item Use indirect edges to connect these vertice. The number of edges between $v_i$ and $v_j$ is $m_{i,j}$.
 \end{enumerate}
- 
+
 Then, the problem is reduced to find a feasible orientation of this graph. That is to say, if we can find a feasible orientation of this graph, then team 1 is possible to be the unique winner. On the contrary, it is impossible.\\
 According to ex6, feasible orientation problem can be reduced to a maximum matching problem, which can be solved in polynomial time.
 

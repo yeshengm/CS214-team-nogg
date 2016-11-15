@@ -6,6 +6,8 @@
 \usepackage{listings}
 \usepackage{color}
 \usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
 
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
@@ -116,7 +118,7 @@ Because of $d_i <= d_2$, then\\
 Also because of $d_1 >= d_2$ that mentioned above, then $|V_1'| <= |\Gamma (V_1')|$.\\
 According to \textbf{Hall's Theorem},  $G$ contains a matching of size $min(|V_1|, |V_2|)$.
 
-\end{sol}\\
+\end{sol}
 
 
 
@@ -126,13 +128,26 @@ According to \textbf{Hall's Theorem},  $G$ contains a matching of size $min(|V_1
 \begin{sol}
 	\begin{enumerate}[1.]
 		\item Since in this problem, all existing edges will not give any constraint to flow, we can give a infinite capacity for all existing edges. We only need to take care of vertices since for all vertex $u$ there is a vertex capacity $c(u)$ which limits outflow from this vertex.\\
-			To express this constraint with edge capacity, we replace every vertex $v$ with two vertices $v_{in}$ and $v_{out}$, where edge capacity $c_{in\rightarrow out} = c(v)$. Also we need to replace all edge $u\rightarrow v$ with $u_{out}\rightarrow v_{in}$.\\
+			To express this constraint with edge capacity, we replace every vertex $v$ with two vertices $v_{in}$ and $v_{out}$, where edge capacity $c_{in\rightarrow out} = c(v)$. Also we need to replace all edge $(u, v)$ with $u_{out}\rightarrow v_{in}$.\\
 			Finally we solve the max flow with edge capacities in this new graph and get the new $s-t$ flow.
-	\item Picture to be inserted
+	\item Picture shown as follows:
+		\begin{figure}
+			\centering
+			\begin{subfigure}{.5\textwidth}
+				\centering
+				\includegraphics[width=0.8\linewidth]{dis1.png}
+				\caption{vertex capacity graph}
+			\end{subfigure}%
+			\begin{subfigure}{.5\textwidth}
+				\centering
+				\includegraphics[width=1\linewidth]{dis2.png}
+				\caption{converted edge capacity graph}
+			\end{subfigure}
+		\end{figure}
 	\item Similar to previously introduced technique, we can construct a new graph to solve this problem:
 		\begin{enumerate}[(1)]
 			\item Replace each vertex $v$ with $v_{in}$ and $v_{out}$ and set edge capacity of it to be 1
-			\item Replace each edge $u\rightarrow v$ in the original graph to $u_{out}\rightarrow v_{in}$ in the new graph
+			\item Replace each edge $(u, v)$ in the original graph to $u_{out}\rightarrow v_{in}$ with capacity $1$ in the new graph
 			\item Solve the max flow for the new graph from $s_{out}$ to $t$
 		\end{enumerate}
 		Since the graph construction and max flow can be solved in polynomial time, this solution for vertex disjoint paths can be solved in polynomial time.

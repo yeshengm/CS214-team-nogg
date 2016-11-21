@@ -156,6 +156,7 @@ Then according to Exercise 2, we know that this bipartite graph contains a match
 		\begin{enumerate}[(1)]
 			\item Replace each vertex $v$ with $v_{in}$ and $v_{out}$ and set edge capacity of it to be 1
 			\item Replace each edge $(u, v)$ in the original graph to $u_{out}\rightarrow v_{in}$ with capacity $1$ in the new graph
+			\item Sepecially, the source and destination of this graph are $v_{out}$ and $s$ respectively, where $s$ and $t$ are specified in the original graph
 			\item Solve the max flow for the new graph from $s_{out}$ to $t$
 		\end{enumerate}
 		Since the graph construction and max flow can be solved in polynomial time, this solution for vertex disjoint paths can be solved in polynomial time.
@@ -166,7 +167,10 @@ Then according to Exercise 2, we know that this bipartite graph contains a match
 \textbf{Exercise 5}
 \begin{sol}
 	We prove this by considering a matching between $L_i$ and $L_{i+1}$. Since $\binom{n}{i}$ is the maximum number of vertices in $L_i$, we only need to prove that there exist such paths.\\
-	For each vertex $v$ in $L_{j}$ where $(i\leq j\leq n-i)$, considering the property of Hamming code, $v$'s neighbor in the next level $L_{j+1}$ should be $\binom{n-j}{1}$. Then for all vertices that belongs to one of the vertex disjoint paths, we can conclude that there exist a matching from these vertices to vertices in $L{i+1}$ from Hall's theorem.\\
+	For each vertex $v$ in $L_{j}$ where $(i\leq j\leq n-i)$, considering the property of Hamming code, $v$'s neighbor in the next level $L_{j+1}$ should be $\binom{n-j}{1}$.\\
+	Since we only care about those $\binom{n}{i}$ paths from $L_i$ which is the maximal possible number of disjoint paths, 
+	we can then consider the matching where $L$ and $R$ are vertex set of size $\binom{n}{i}$ rather than consider all the vertices in $L_j$ and $L_{j+1}$. 
+	Then for all vertices that belongs to one of the vertex disjoint paths, we can conclude that there exist a matching from these vertices to vertices in $L{i+1}$ from Hall's theorem.\\
 	Thus for each level there is such a matching of size $\binom{n}{i}$. Therefor there are $\binom{n}{i}$ such paths.
 
 \end{sol}

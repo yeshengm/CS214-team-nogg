@@ -86,8 +86,18 @@
 \textbf{Exercise 1}
 \begin{sol}
 	
-\qquad If there are intersections of s-r-flow and r-t-flow, then there must be circles which contains $r$. Remove these circles and it won't change the flow value form $s$ to $t$. Thus, this lemma is proved.
+\qquad If there are intersections of s-r-flow and r-t-flow, then there must be circles including $r$.
 
+\qquad The flow to $r$ and from $r$ is the same at an intersection, so we can find a same-value flow that directly flows through the intersection witch do not flow through the circle.
+
+\qquad Remove these circles and it won't change the flow value form $s$ to $t$.
+
+\qquad Maybe it can be more clear from the following figure. It shows one of the circles in the flow.
+\begin{figure}[H]
+	\center
+	\includegraphics[width=0.6\linewidth]{1-1.jpg}\vspace{-10pt}
+	\nonumber\vspace{-10pt}
+\end{figure}
 \end{sol}\\
 
 \textbf{Exercise 2}

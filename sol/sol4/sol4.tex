@@ -125,7 +125,7 @@ According to \textbf{Hall's Theorem},  $G$ contains a matching of size $min(|V_1
 \begin{sol}\\
 First, since there is no edge between nodes at the same level, so we can simply regard set $L_i$ and set $L_{i+1}$ as two parts. Then we need to prove that this bipartite graph contains a matching of size $|L_i|=\binom{n}{i}$.\\
 \textbf{OBSERVATION:}\\
-1. $|L_i|\leq |L_{i+1}|$.\\
+1. $|L_i|\leq |L_{i+1}|$. Since we know that $|L_i|=\binom{n}{i}$, and according to the property of Binomial coefficient, it's easily to prove that $|L_i|$ increases within the range of (n/2).\\
 2. $\forall v\in L_i$, $|\{u|(v,u)\in E, u\in L_{i+1}\}|=\binom{n-i}{1}$.\\
 3. $\forall v\in L_{i+1}$, $|\{u|(v,u)\in E, u\in L_i\}|=\binom{i+1}{1}$.\\
 Then according to Exercise 2, we know that this bipartite graph contains a matching of size $min(|L_i|,|L_{i+1}|)=|L_i|=\binom{n}{i}$.

@@ -5,6 +5,7 @@
 \usepackage{amsthm}
 \usepackage{listings}
 \usepackage{color}
+\usepackage{epstopdf}
 \usepackage{float}
 
 \definecolor{dkgreen}{rgb}{0,0.6,0}
@@ -81,5 +82,34 @@
 {\bf\small CS214: Algorithms and Complexity}\hfill{\bf\small 2016 Fall}
 {\let\newpage\relax\maketitle}
 
+
+\textbf{Exercise 3.}
+\begin{sol}
+
+Here is the example based on which we cannot find a maximum cut from the modified Stoer-Wagner algorithm. This is the initial undirected-weighted graph.\\
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\linewidth]{1.eps}
+\end{figure}
+
+Based on the modified algorithm, we will choose the least tightly connected vertex.\\
+So we choose vertex from 1 vertex.\\
+And the cut phase will be {1, 2, 4} {3}. In the meantime, the weight is 2 + 3 + 3 = 8. And we merge the vertex 4 and 3. The remaining graph is as followed.\\
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\linewidth]{2.eps}
+\end{figure}
+
+And continuing, the cut phase will be {1, 2} {3 4}. The weight is 3 + 4 = 7. And merge 2 and 3 4. The remaining graph is as followed.\\
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.1\linewidth]{3.eps}
+\end{figure}
+
+The weight is 5.\\
+As a result, the max weight we get from the modified algorithm is 8. However, if we consider the cut {1, 4} and {2, 3}, the weight is 3 + 3 + 2 + 2 = 10. So the result is wrong. So the modified Stoer-Wagner Algorithm fails to find the maximum cut.\\
+\end{sol}
 
 \end{document}

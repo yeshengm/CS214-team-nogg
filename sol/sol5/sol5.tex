@@ -5,6 +5,7 @@
 \usepackage{amsthm}
 \usepackage{listings}
 \usepackage{color}
+\usepackage{epstopdf}
 \usepackage{float}
 
 \definecolor{dkgreen}{rgb}{0,0.6,0}
@@ -88,8 +89,47 @@
 \item Since in a cycle of $n$ edges, a mincut can only contain $2$ edges
     and we can choose the $2$ edges from $n$ edges. Thus the number of
         mincuts in a $C_n$ should be $\binom{n}{2}$
+\item Suppose we there are $m$ different global mincuts. For the Karger's algorithm, the probability of each global mincut
+    should be $\frac{1}{\binom{n}{2}}$ and since these are all disjoint events we get:
+        \[
+            \sum_{1}^{m} \frac{1}{\binom{n}{2}} \leq 1
+            \]
+        Thus we get that the max kinds of mincut should be $\binom{n}{2}$.
 
+\item Simply consider that for $s$, we have $v_1, v_2 \ldots v_n$ connected to $s$ and we also have these
+    $v_1, v_2 \ldots v_n$ connected to $t$. Since $s$ and $t$ has to be in different $S$ and $\overline{S}$,
+    we can arbitrarily take $v_i$ to $S$ or $\overline{S}$ without changing the value of mincut, which should be $n$.
+    In this we, we the total number of mincuts should be $2^n$, which is a exponential number.
 \end{enumerate}
 
+
+\textbf{Exercise 3.}
+\begin{sol}
+
+Here is the example based on which we cannot find a maximum cut from the modified Stoer-Wagner algorithm. This is the initial undirected-weighted graph.\\
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\linewidth]{1.eps}
+\end{figure}
+
+Based on the modified algorithm, we will choose the least tightly connected vertex.\\
+So we choose vertex from 1 vertex.\\
+And the cut phase will be {1, 2, 4} {3}. In the meantime, the weight is 2 + 3 + 3 = 8. And we merge the vertex 4 and 3. The remaining graph is as followed.\\
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\linewidth]{2.eps}
+\end{figure}
+
+And continuing, the cut phase will be {1, 2} {3 4}. The weight is 3 + 4 = 7. And merge 2 and 3 4. The remaining graph is as followed.\\
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.1\linewidth]{3.eps}
+\end{figure}
+
+The weight is 5.\\
+As a result, the max weight we get from the modified algorithm is 8. However, if we consider the cut {1, 4} and {2, 3}, the weight is 3 + 3 + 2 + 2 = 10. So the result is wrong. So the modified Stoer-Wagner Algorithm fails to find the maximum cut.\\
+\end{sol}
 
 \end{document}

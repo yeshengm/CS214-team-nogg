@@ -82,6 +82,10 @@
 {\bf\small CS214: Algorithms and Complexity}\hfill{\bf\small 2016 Fall}
 {\let\newpage\relax\maketitle}
 
+<<<<<<< HEAD
+=======
+\textbf{Solution 1:}\\
+>>>>>>> 5a75435a94d953214b887228c2c168af4e164bae
 \textbf{Exercise 1}
 \begin{sol}\\
 Let's denote all the vertices, except s and t, as $e_i$ where i is in range of 1 and n-2.
@@ -157,6 +161,31 @@ The whole process is like this:\\
 Total steps are: $\sum_{i=1}^{n-2}(3+i)$=$\frac{n^2+3n-10}{2}$.
 \end{enumerate}
 \end{sol}
+<<<<<<< HEAD
+=======
+
+
+
+\textbf{Solution 2:}\\
+\begin{enumerate}[1.]
+\item Since in a cycle of $n$ edges, a mincut can only contain $2$ edges
+    and we can choose the $2$ edges from $n$ edges. Thus the number of
+        mincuts in a $C_n$ should be $\binom{n}{2}$
+\item Suppose we there are $m$ different global mincuts. For the Karger's algorithm, the probability of each global mincut
+    should be $\frac{1}{\binom{n}{2}}$ and since these are all disjoint events we get:
+        \[
+            \sum_{1}^{m} \frac{1}{\binom{n}{2}} \leq 1
+            \]
+        Thus we get that the max kinds of mincut should be $\binom{n}{2}$.
+
+\item Simply consider that for $s$, we have $v_1, v_2 \ldots v_n$ connected to $s$ and we also have these
+    $v_1, v_2 \ldots v_n$ connected to $t$. Since $s$ and $t$ has to be in different $S$ and $\overline{S}$,
+    we can arbitrarily take $v_i$ to $S$ or $\overline{S}$ without changing the value of mincut, which should be $n$.
+    In this we, we the total number of mincuts should be $2^n$, which is a exponential number.
+\end{enumerate}
+
+
+>>>>>>> 5a75435a94d953214b887228c2c168af4e164bae
 \textbf{Exercise 3.}
 \begin{sol}
 

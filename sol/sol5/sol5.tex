@@ -83,6 +83,83 @@
 {\let\newpage\relax\maketitle}
 
 \textbf{Solution 1:}\\
+\textbf{Exercise 1}
+\begin{sol}\\
+Let's denote all the vertices, except s and t, as $e_i$ where i is in range of 1 and n-2.
+\begin{enumerate}
+\item\textbf{right-most:}\\
+The whole process is like this:\\
+1. In the beginning, s.h = n while others' heights are all 0. And only $e_1$ is overflowing, $e_1.e$ is n-1.
+	\begin{figure}[H]\centering
+	\includegraphics[width=7cm]{1.png}
+	\caption{Initialization}
+	\end{figure}
+2. Among all the vertices with height 0(except vertex t), choose the right-most overflowing one. If the chosen one is t, goto 4 else relabel it by setting its height to 1, then goto 3.\\
+3. Push ($e_i$,$e_{i+1}$), where $e_i$ is the chosen one in 2. Because that $e_i.e$ is one more that $c_f(e_i,e_{i+1})$, the result is that now $e_i.e$ is 1 and $f(e_i,e_{i+1})$ is n-i-1, and then $e_{i+1}$ is overflowing. Goto 2.\\
+	\begin{figure}[H]\centering
+	\includegraphics[width=7cm]{2.png}
+	\caption{Choose e1}
+	\end{figure}
+4. Now the situation is that all vertices, except s and t,  have height 1. s.h = n, t.h = 0. And except s, all vertices have excess 1.\\
+	\begin{figure}[H]\centering
+	\includegraphics[width=7cm]{3.png}
+	\caption{situation described in 4}
+	\end{figure}
+5. Among all the vertices with height 1, choose the right-most one(it must be overflowing), if it's $e_1$, goto 7 else relabel it  by setting its height to 2, goto 6.\\
+6. Push ($e_{i+1}$,$e_i$), where $e_{i+1}$ is the chosen one in 5. Then the result is $e_{i+1}$ is not overflowing, $e_i.e$ is n-i-1, and $f(e_i,e_{i+1})$ is 1. Then goto 5.\\
+7. If the chosen one in 5 is $e_1$, then relabel it by setting its height to 3. Push ($e_i$,$e_2$) and now $e_1.e$ is 1 and $e_2.e$ is n-3. $f(e_1,e_2)$ is n-2.\\
+Then after repeating this process 2-7 by [n/2] times, we come to one of these situations(depending on n is even or odd):\\
+Before that let's count the push-relabel steps so far. \\
+Each action in 2, 3, 5, 6 needs one step, and action in 7 needs 2 steps. And remenber, after the first 2-7 round, each time when we choose $e_{n-2}$ in 2, we can't just lift it by one but by two.\\
+So the total action steps is [n/2]*2*(2n-6)+4=(4n-12)*[n/2]+4.\\
+\textbf{if n is even:}\\
+	\begin{figure}[H]\centering
+	\includegraphics[width=7cm]{4.png}
+	\caption{After 7 when n is even}
+	\end{figure}
+Now all vertices except $e_1$ and t have height n. $e_1.h$ is n+1, $t.h$ is 0. We can still push($e_1$,$s$). Since $e_1.e$ is 1, and $c_f(e_1,s)$ is n-1, after pushing we get: $f(s,e_1)$ is n-2 and $e_1$ is not overflowing.\\
+Then repeat process 2-6, and we get: ($e_1.e$ is n-2)\\
+	\begin{figure}[H]\centering
+	\includegraphics[width=7cm]{5.png}
+	\caption{Before the final step}
+	\end{figure}
+Now we can push($e_1,s$) and get the final result.\\
+Total steps is (4n-12)*[n/2]+4+1(the push at first)+2*(2n-7)+1(the last push)=2$n^2$-2n-8.\\
+\textbf{if n is odd:}\\
+	\begin{figure}[H]\centering
+	\includegraphics[width=7cm]{6.png}
+	\caption{After 7 when n is odd}
+	\end{figure}
+Now all vertices except s, $e_1$ and t have height n-1. s.h and $e_1.h$ are both n, t.h is 0.\\
+Then repeat process 2-6 and we get:($e_1.e$ is n-2)\\
+	\begin{figure}[H]\centering
+	\includegraphics[width=7cm]{7.png}
+	\caption{Before the final step}
+	\end{figure}
+Now we can lift $e_1$ by 1 and push($e_1,s$) and get the final result.\\
+Total steps is  (4n-12)*[n/2]+4+2*(2n-6)=2$n^2$-4n-2.\\
+\textbf{After all:}the result is (4n-12)*[n/2]+(4n-8).
+\item\textbf{left-most:}\\
+The whole process is like this:\\
+1. In the beginning, s.h = n while others' heights are all 0. And only $e_1$ is overflowing, $e_1.e$ is n-1.\\
+2. Among all the vertices with height 0(except vertex t), choose the left-most overflowing one. If the chosen one is t, goto 6 else relabel it by setting its height to 1, then goto 3.\\
+3. Push ($e_i$,$e_{i+1}$), where $e_i$ is the chosen one in 2. Because that $e_i.e$ is one more that $c_f(e_i,e_{i+1})$, the result is that now $e_i.e$ is 1 and $f(e_i,e_{i+1})$ is n-i-1, and then $e_{i+1}$ is overflowing. Goto 4.\\
+	\begin{figure}[H]\centering
+	\includegraphics[width=7cm]{8.png}
+	\caption{Choose e1}
+	\end{figure}
+4. Relabel $e_i$ by setting its height to n+i, goto 5.\\
+5. Push($e_i$,$e_{i-1}$), push($e_{i-1}$,$e_{i-2}$)...until push($e_1$,s). Now we get that the the first i vertices are not overflowing. Goto to 2.\\
+6. Now this is the final situation.\\
+	\begin{figure}[H]\centering
+	\includegraphics[width=7cm]{9.png}
+	\caption{Final State}
+	\end{figure}
+Total steps are: $\sum_{i=1}^{n-2}(3+i)$=$\frac{n^2+3n-10}{2}$.
+\end{enumerate}
+\end{sol}
+
+
 
 \textbf{Solution 2:}\\
 \begin{enumerate}[1.]

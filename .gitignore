@@ -12,3 +12,9 @@ slide/*.synctex.gz
 slide/*.tex.bak
 slide/*.bbl
 slide/*.blg
+slide/*.nav
+slide/*.out
+slide/*.out.bak
+slide/*.snm
+slide/*.toc
+slide/*.vrb

@@ -1,0 +1,403 @@
+\documentclass{beamer}
+
+\mode<presentation> {
+
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+%\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amssymb}
+\usepackage{color}
+
+\title[Short title]{Non-zero-sum Game and Nash Equilibarium}
+
+\author{Team nogg}
+\institute[SJTU]
+{
+
+}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Overview}
+\tableofcontents
+\end{frame}
+
+\section{Introductions}
+\begin{frame}
+\frametitle{What is a Game?}
+A normal-form game:\\
+\begin{itemize}
+\item The {\color{red} number} of players n: $[n] = \{1,2,...,n\}$
+\item a finite {\color{red} set of pure strategies} $S_p$ for each player p
+\item a {\color{red} utility function} $u_p$ for each player p\\
+        \qquad $u_p : S_1 \times S_2 \times ... \times S_n  \rightarrow \mathbb{R}$\\
+        In General words, you can get the pay-off of player p using the function $u_p$ when choosing a concrete strategy combination.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{What is a Game?}
+\begin{itemize}
+\item A normal-form game can be summarized as a tuple:\\
+        \qquad $<n, (S_p)_{p\in [n]}, (u_p)_{p\in [n]}>$
+\item Complete information: every player know the whole tuple.
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{What is a Non-zero Sum Game?}
+\begin{itemize}
+\item
+The sum of each player's gain or loss $\neq$ what they begin with.
+\item
+$\exists (s_1,s_2,...,s_n)\in S_1\times S_2 \times ... \times S_n$, $\sum_{i=1}^{n} u_i(s_1,s_2,...,s_n) \neq 0$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Non-zero Sum Game Example}
+Prisoner's Dilemma:\\
+\begin{itemize}
+\item
+\begin{tabular}{|c|c|c|}
+\hline
+\hline
+    & B cooperates & B defects\\
+\hline
+A cooperates & (-1,-1) & (-9,0)\\
+\hline
+A defects & (0,-9) & (-6,-6)\\
+\hline
+\hline
+\end{tabular}
+\item
+n = 2
+\item
+$S_1 = \{ C, D\}$  \qquad $S_2 = \{ C, D\}$
+\item
+$u_1(C,C) = -1$ \qquad $u_2(C,C) = -1$\\
+$u_1(C,D) = -9$ \qquad $u_2(C,D) = 0$\\
+$u_1(D,C) = 0 $ \text{ } \qquad $u_2(D,C) = -9$\\
+$u_1(D,D) = -6$ \qquad $u_2(D,D) = -6$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Strict Domination}
+Assuming you are player A, what should you do?\\
+\begin{itemize}
+\item 
+What if B chooses to cooperate?\\
+OS: Go to hell my friend, I won't go to the damn jail.\\
+Result: A is free and B spends 9 years.
+\item
+What if B chooses to defect?\\
+OS: All right, let's hurt each other.\\
+Result: A and B spends next 6 years together.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Strict Domination}
+The process is like:\\
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+\hline
+    & B cooperates & B defects\\
+\hline
+A cooperates & (-1,-1) & (-9,0)\\
+\hline
+A defects & (0,-9) & (-6,-6)\\
+\hline
+\hline
+\end{tabular}\\
+$\Downarrow$\\
+\begin{tabular}{|c|c|c|}
+\hline
+\hline
+    & B cooperates & B defects\\
+\hline
+A defects & (0,-9) & (-6,-6)\\
+\hline
+\hline
+\end{tabular}\\
+$\Downarrow$\\
+\begin{tabular}{|c|c|c|}
+\hline
+\hline
+     & B defects\\
+\hline
+A defects & (-6,-6)\\
+\hline
+\hline
+\end{tabular}
+\end{frame}
+
+\begin{frame}
+\frametitle{Strict Domination}
+\begin{itemize}
+\item
+If one of a player’s strategies is never the right thing to do, no matter what the opponents do, it is \textbf{Strictly Dominated}.
+\item
+If players are \textbf{rational}, we can predict the outcome of the game.
+\item
+Get rid of the strictly dominated strategies because they won't happen.
+\item
+This is called \textbf{iterated elimination of dominated strategies}.
+\end{itemize}
+\end{frame}
+
+
+\section{Useful Concepts}
+
+\begin{frame}
+\frametitle{Pure Strategy and Mixed Strategy}
+Pure Strategy:\\
+\begin{itemize}
+\item Under complete information, if every player will {\color{red} only choose one strategy}, then it is a pure strategy.
+\item Pure strategy's pay-off {\color{red}can be obtained} by the utility function $u_p$.
+\item It is a special case of mixed strategy.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Pure Strategy Example}
+Prisoner's Dilemma:
+\begin{itemize}
+\item
+\begin{tabular}{|c|c|c|}
+\hline
+\hline
+    & B cooperates & B defects\\
+\hline
+A cooperates & (-1,-1) & (-9,0)\\
+\hline
+A defects & (0,-9) & (-6,-6)\\
+\hline
+\hline
+\end{tabular}
+\item
+(x,y) means A's pay-off is x and B's pay-off is y.\\
+\item {\color{red} "A defects and B defects"} is a pure strategy.\\
+\item Actually, this pure strategy is a {\color{red}Nash Equilibrium}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Pure Strategy and Mixed Strategy}
+Mixed Strategy:\\
+\begin{itemize}
+\item Under complete information, if player will choose strategies based {\color{red}on some probability}, then it is a mixed strategy.
+\item Mixed strategy's pay-off can only be {\color{red} predicted}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Mixed Strategy Example}
+Guessing Game:\\
+There are two persons. Each of them has a coin, they are going to show an edge together.\\
+\begin{itemize}
+\item
+\begin{tabular}{|c|c|c|}
+\hline
+\hline
+    & B head & B tail\\
+\hline
+A head & (1,-1) & (-1,1)\\
+\hline
+A tail & (-1,1) & (1,-1)\\
+\hline
+\hline
+\end{tabular}
+\item
+(x,y) means A's pay-off is x and B's pay-off is y.\\
+\item After thinking about the game, {\color{red}"A and B both choose to show head of the coin at 50\% probability and show tail at 50\% probability"}, it is a mixed strategy.
+\item Actually, this mixed strategy is a {\color{red}Nash Equilibrium}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{What is Nash Equilibrium?}
+\begin{itemize}
+\item
+In words, x is a Nash equilibrium iff no player can strictly increase his or her payoff by switching to
+a different mixed strategy, if the other players don��t change their strategies.
+\item x can be a pure strategy profile or a mixed strategy profile.
+\end{itemize}
+\end{frame}
+
+
+\section{Nash's Theorem}
+\begin{frame}{Nash's Theorem}
+	\begin{itemize}[]
+		\item \textbf{\large Nash's Theorem}:
+		
+		\qquad Every game with a finite number of players and a finite number of actions
+		available to each player has a Nash equilibrium.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{How to prove it?}
+\begin{itemize}[<+->]
+	\item Nash's original proof of it used \textbf{Kakutani's fixed point theorem}.
+	\item But a year later Nash simplified his proof to only use \textbf{Brouwer's fixed point theorem}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{How to prove it?}
+	\begin{itemize}
+		\item Nash's original proof of it used \textbf{Kakutani's fixed point theorem}.
+		\item But a year later Nash simplified his proof to only use \textbf{\color{red}\large Brouwer's fixed point theorem}.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Brouwer's fixed point theorem}
+	\begin{itemize}
+		\item \textbf{\large Brouwer's fixed point theorem}:
+		
+		\qquad Let $D$ be a convex, compact subset of the Euclidean space. If $f : D\  \overrightarrow{}\ D$ is
+		continuous, then there exists $x \in D$ such that $f (x) = x$.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Brouwer's fixed point theorem}
+	\begin{itemize}
+		\item \textbf{Examples}:
+		\begin{itemize}
+			\item Take an ordinary map of a country, and suppose that that map is laid out on a table inside that country. There will always be a "You are Here" point on the map which represents that same point in the country.
+		\end{itemize}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.7\linewidth]{001.jpg}\vspace{-10pt}
+			\nonumber\vspace{-10pt}
+		\end{figure}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Gain function}
+	\begin{itemize}[<+->]
+		\item Now we introduce the idea of \textbf{Gain function}:\\
+		\begin{equation}
+		Gain_{p;s_p} (x) = max\{u_p(s_p;x_{-p})-u_p(x), 0\} \ \  \ \ \ \ \ \nonumber
+		\end{equation}
+		\item In other words, the $Gain$ is equal to the increase in payoff for player p if he were to switch to pure
+		strategy $s_p$.
+		\item Obviously, the $Gain$ for all players is 0 in \textbf{Nash Equilibrium}.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Proof of Nash' Theorem}
+	\begin{itemize}[<+->]
+		\item Now we define a function $f$ as follows:
+		 \begin{equation}
+		 y_p(s_p) := \frac{x_p(s_p) + Gain_{p;s_p}(x)}{1 + \sum_{s'_p \in S_p} Gain_{p;s'_p}(x)} \ \ \ \ \ \ \ \nonumber
+		 \end{equation}
+		\item In other words, function $f$ tries to boost the probability mass that player p places on various pure strategies
+		depending on the $p$ gains in payoff the player would get by switching to these strategies.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Proof of Nash' Theorem}
+	\begin{itemize}[<+->]
+		\item It is easy to see that f is continuous, convex and compact. So we can use \textbf{Brouwer's fixed point theorem}, there is at least one fixed point of function $f$.
+		\item For any fixed point $x=f(x)$,
+		\begin{equation}
+		Gain_{p;s_p}(x) = 0, \ \ \  \forall p\in [n], s_p \in S_p .\nonumber
+		\end{equation}
+	It will be proved later.
+	\item Then we claim that any fixed point of $f$ is a \textbf{Nash equilibrium}.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Proof of Nash' Theorem}
+	\begin{itemize}[<+->]
+		\item It is easy to see that f is continuous, convex and compact. So we can use \textbf{Brouwer's fixed point theorem}, there is at least one fixed point of function $f$.
+		\item For any fixed point $x=f(x)$,
+		\begin{equation}
+		Gain_{p;s_p}(x) = 0, \ \ \  \forall p\in [n], s_p \in S_p .\nonumber
+		\end{equation}
+		It can be proved by by contradiction.
+		\item Then we claim that any fixed point of $f$ is a \textbf{Nash equilibrium}.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{The smile of John Nash}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\linewidth]{002.jpeg}\vspace{-10pt}
+		\nonumber\vspace{-10pt}
+	\end{figure}
+\end{frame}
+
+
+\begin{frame}
+\Huge{\centerline{The End}}
+\end{frame}
+
+\end{document}

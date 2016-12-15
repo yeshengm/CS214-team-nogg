@@ -1,0 +1,179 @@
+\documentclass{beamer}
+
+\mode<presentation> {
+
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+%\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amssymb}
+\usepackage{color}
+
+\title[Short title]{Non-zero-sum Game and Nash Equilibarium}
+
+\author{Team nogg}
+\institute[SJTU]
+{
+
+}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Overview}
+\tableofcontents
+\end{frame}
+
+
+\section{Useful Concepts}
+\begin{frame}
+\frametitle{What is a Game?}
+A normal-form game:\\
+\begin{itemize}
+\item The {\color{red} number} of players n: $[n] = \{1,2,...,n\}$
+\item a finite {\color{red} set of pure strategies} $S_p$ for each player p
+\item a {\color{red} utility function} $u_p$ for each player p\\
+        \qquad $u_p : S_1 \times S_2 \times ... \times S_n  \rightarrow \mathbb{R}$\\
+        In General words, you can get the pay-off of player p using the function $u_p$ when choosing a concrete strategy combination.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{What is a Game?}
+\begin{itemize}
+\item A normal-form game can be summarized as a tuple:\\
+        \qquad $<n, (S_p)_{p\in [n]}, (u_p)_{p\in [n]}>$
+\item Complete information: every player know the whole tuple.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Pure Strategy and Mixed Strategy}
+Pure Strategy:\\
+\begin{itemize}
+\item Under complete information, if every player will only choose one strategy, then it is a pure strategy.
+\item Pure strategy's pay-off can be obtained by the utility function $u_p$.
+\item It is a special case of mixed strategy.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Pure Strategy Example}
+Prisoner's Dilemma:
+\begin{itemize}
+\item
+\begin{tabular}{|c|c|c|}
+\hline
+\hline
+    & B cooperates & B defects\\
+\hline
+A cooperates & (-1,-1) & (-9,0)\\
+\hline
+A defects & (0,-9) & (-6,-6)\\
+\hline
+\hline
+\end{tabular}
+\item
+(x,y) means A's pay-off is x and B's pay-off is y.\\
+\item "A defects and B defects" is a pure strategy.\\
+\item Actually, this pure strategy is a Nash Equilibrium.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Pure Strategy and Mixed Strategy}
+Mixed Strategy:\\
+\begin{itemize}
+\item Under complete information, if player will choose strategies based on some probability, then it is a mixed strategy.
+\item Mixed strategy's pay-off can only be predicted.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Mixed Strategy Example}
+Guessing Game:\\
+There are two persons. Each of them has a coin, they are going to show an edge together.\\
+\begin{itemize}
+\item
+\begin{tabular}{|c|c|c|}
+\hline
+\hline
+    & B head & B tail\\
+\hline
+A head & (1,-1) & (-1,1)\\
+\hline
+A tail & (-1,1) & (1,-1)\\
+\hline
+\hline
+\end{tabular}
+\item
+(x,y) means A's pay-off is x and B's pay-off is y.\\
+\item After thinking about the game, "A and B both choose to show head of the coin at 50\% probability and show tail at 50\% probability", it is a mixed strategy.
+\item Actually, this mixed strategy is a Nash Equilibrium.
+\end{itemize}
+\end{frame}
+
+
+\end{document}

@@ -6,3 +6,9 @@ sol/**/*.pdf
 sol/**/*.bbl
 sol/**/*.blg
 slide/*.pdf
+slide/*.aux
+slide/*.log
+slide/*.synctex.gz
+slide/*.tex.bak
+slide/*.bbl
+slide/*.blg

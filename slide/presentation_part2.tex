@@ -85,6 +85,181 @@
 \tableofcontents
 \end{frame}
 
+\section{Introductions}
+\begin{frame}
+\frametitle{What is a Game?}
+A normal-form game:\\
+\begin{itemize}
+\item The {\color{red} number} of players: n
+\item A finite {\color{red} set of pure strategies} $S_p$ for each player p
+\item A {\color{red} utility function} $u_p$ for each player p\\
+        \qquad $u_p : S_1 \times S_2 \times ... \times S_n  \rightarrow \mathbb{R}$\\
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{What is a Non-zero Sum Game?}
+\begin{itemize}
+\item
+The sum of each player's gain or loss $\neq$ what they begin with.
+\item
+$\exists (s_1,s_2,...,s_n)\in S_1\times S_2 \times ... \times S_n$, $\sum_{i=1}^{n} u_i(s_1,s_2,...,s_n) \neq 0$
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Non-zero Sum Game Example}
+Prisoner's Dilemma:\\
+\begin{itemize}[<+->]
+\item
+\begin{tabular}{|c|c|c|}
+\hline
+\hline
+    &{\color{red}Bob} Deny&{\color{red}Bob} Confess\\
+\hline
+{\color{blue}Alice} Deny& ({\color{blue}-1},{\color{red}-1}) & ({\color{blue}-9},{\color{red}0})\\
+\hline
+{\color{blue}Alice} Confess& ({\color{blue}0},{\color{red}-9}) & ({\color{blue}-6},{\color{red}-6})\\
+\hline
+\hline
+\end{tabular}
+\item
+n = 2
+\item
+{\color{blue}$S_1 = \{ C, D\}$}  \qquad {\color{red}$S_2 = \{ C, D\}$}
+\item
+{\color{blue}$u_1(D,D) = -1$} \qquad {\color{red}$u_2(D,D) = -1$}\\
+{\color{blue}$u_1(D,C) = -9$} \qquad {\color{red}$u_2(D,C) = 0$}\\
+{\color{blue}$u_1(C,D) = 0 $} \text{ } \qquad {\color{red}$u_2(C,D) = -9$}\\
+{\color{blue}$u_1(C,C) = -6$} \qquad {\color{red}$u_2(C,C) = -6$}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Strict Domination}
+Assuming you are {\color{blue}Alice}, what should you do?\\
+\begin{itemize}[<+->]
+\item
+\begin{tabular}{|c|c|c|}
+\hline
+\hline
+    &{\color{red}Bob} Deny&{\color{red}Bob} Confess\\
+\hline
+{\color{blue}Alice} Deny& ({\color{blue}-1},{\color{red}-1}) & ({\color{blue}-9},{\color{red}0})\\
+\hline
+{\color{blue}Alice} Confess& ({\color{blue}0},{\color{red}-9}) & ({\color{blue}-6},{\color{red}-6})\\
+\hline
+\hline
+\end{tabular}
+
+\item 
+What if {\color{red}Bob} chooses to \textbf{Deny}?
+\item
+Result: {\color{blue}Alice} is free and {\color{red}Bob} will spend 9 years.
+\item
+What if {\color{red}Bob} chooses to \textbf{Confess}?
+\item
+Result: {\color{blue}Alice} and {\color{red}Bob} will spend 6 years together.
+\item
+\textbf{In both cases, }{\color{blue}Alice}\textbf{ will definitely choose to confess.}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Strict Domination}
+The process is like:\\
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+\hline
+    &{\color{red}Bob} Deny&{\color{red}Bob} Confess\\
+\hline
+{\color{blue}Alice} Deny& ({\color{blue}-1},{\color{red}-1}) & ({\color{blue}-9},{\color{red}0})\\
+\hline
+{\color{blue}Alice} Confess& ({\color{blue}0},{\color{red}-9}) & ({\color{blue}-6},{\color{red}-6})\\
+\hline
+\hline
+\end{tabular}
+\end{frame}
+
+\begin{frame}
+\frametitle{Strict Domination}
+The process is like:\\
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+\hline
+    &{\color{red}Bob} Deny&{\color{red}Bob} Confess\\
+\hline
+{\color{blue}Alice} Deny& ({\color{blue}-1},{\color{red}-1}) & ({\color{blue}-9},{\color{red}0})\\
+\hline
+{\color{blue}Alice} Confess& ({\color{blue}0},{\color{red}-9}) & ({\color{blue}-6},{\color{red}-6})\\
+\hline
+\hline
+\end{tabular}\\
+$\Downarrow$\\
+\begin{tabular}{|c|c|c|}
+\hline
+\hline
+    &{\color{red}Bob} Deny&{\color{red}Bob} Confess\\
+\hline
+{\color{blue}Alice} Confess& ({\color{blue}0},{\color{red}-9}) & ({\color{blue}-6},{\color{red}-6})\\
+\hline
+\hline
+\end{tabular}
+\end{frame}
+
+\begin{frame}
+\frametitle{Strict Domination}
+The process is like:\\
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+\hline
+    &{\color{red}Bob} Deny&{\color{red}Bob} Confess\\
+\hline
+{\color{blue}Alice} Deny& ({\color{blue}-1},{\color{red}-1}) & ({\color{blue}-9},{\color{red}0})\\
+\hline
+{\color{blue}Alice} Confess& ({\color{blue}0},{\color{red}-9}) & ({\color{blue}-6},{\color{red}-6})\\
+\hline
+\hline
+\end{tabular}\\
+$\Downarrow$\\
+\begin{tabular}{|c|c|c|}
+\hline
+\hline
+    &{\color{red}Bob} Deny&{\color{red}Bob} Confess\\
+\hline
+{\color{blue}Alice} Confess& ({\color{blue}0},{\color{red}-9}) & ({\color{blue}-6},{\color{red}-6})\\
+\hline
+\hline
+\end{tabular}\\
+$\Downarrow$\\
+\begin{tabular}{|c|c|c|}
+\hline
+\hline
+    &{\color{red}Bob} Confess\\
+\hline
+{\color{blue}Alice} Confess&  ({\color{blue}-6},{\color{red}-6})\\
+\hline
+\hline
+\end{tabular}
+\end{frame}
+
+\begin{frame}
+\frametitle{Strict Domination}
+\begin{itemize}
+\item
+If one of a player’s strategies is never the right thing to do, no matter what the opponents do, it is \textbf{Strictly Dominated}.
+\item
+Get rid of the strictly dominated strategies because \textbf{they won't happen}.
+\item
+This is called \textbf{iterated elimination of dominated strategies}.
+\end{itemize}
+\end{frame}
+
 
 \section{Mixed Strategy Example}
 \begin{frame}

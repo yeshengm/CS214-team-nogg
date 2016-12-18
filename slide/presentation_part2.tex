@@ -86,102 +86,305 @@
 \end{frame}
 
 
-\section{Useful Concepts}
+\section{Mixed Strategy Example}
 \begin{frame}
-\frametitle{What is a Game?}
-A normal-form game:\\
+\frametitle{Bob and Alice}
 \begin{itemize}
-\item The {\color{red} number} of players n: $[n] = \{1,2,...,n\}$
-\item a finite {\color{red} set of pure strategies} $S_p$ for each player p
-\item a {\color{red} utility function} $u_p$ for each player p\\
-        \qquad $u_p : S_1 \times S_2 \times ... \times S_n  \rightarrow \mathbb{R}$\\
-        In General words, you can get the pay-off of player p using the function $u_p$ when choosing a concrete strategy combination.
+\item {\color{blue}Bob} and {\color{red} Alice} are students in some school.
+\item {\color{blue}Bob} loves {\color{red} Alice} but {\color{red} Alice} dont like {\color{blue}Bob}.
+\item The situation arises when they decide where to eat lunch.
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{What is a Game?}
+\frametitle{Restaurant}
 \begin{itemize}
-\item A normal-form game can be summarized as a tuple:\\
-        \qquad $<n, (S_p)_{p\in [n]}, (u_p)_{p\in [n]}>$
-\item Complete information: every player know the whole tuple.
+\item Restaurant No.1's food is awful.
+\item Restaurant No.3's food is better.
 \end{itemize}
 
 \end{frame}
 
 \begin{frame}
-\frametitle{Pure Strategy and Mixed Strategy}
-Pure Strategy:\\
-\begin{itemize}
-\item Under complete information, if every player will only choose one strategy, then it is a pure strategy.
-\item Pure strategy's pay-off can be obtained by the utility function $u_p$.
-\item It is a special case of mixed strategy.
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Pure Strategy Example}
-Prisoner's Dilemma:
-\begin{itemize}
-\item
+\frametitle{Their Pay-off when eating}
 \begin{tabular}{|c|c|c|}
 \hline
 \hline
-    & B cooperates & B defects\\
+    & {\color{red}Alice} go to No.3 & {\color{red}Alice} go to No.1\\
 \hline
-A cooperates & (-1,-1) & (-9,0)\\
+{\color{blue}Bob} go to No.3 & ({\color{blue}10},{\color{red}4}) & \\
 \hline
-A defects & (0,-9) & (-6,-6)\\
+{\color{blue}Bob} go to No.1 &  & \\
 \hline
 \hline
 \end{tabular}
-\item
-(x,y) means A's pay-off is x and B's pay-off is y.\\
-\item "A defects and B defects" is a pure strategy.\\
-\item Actually, this pure strategy is a Nash Equilibrium.
-\end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{Pure Strategy and Mixed Strategy}
-Mixed Strategy:\\
-\begin{itemize}
-\item Under complete information, if player will choose strategies based on some probability, then it is a mixed strategy.
-\item Mixed strategy's pay-off can only be predicted.
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Mixed Strategy Example}
-Guessing Game:\\
-There are two persons. Each of them has a coin, they are going to show an edge together.\\
-\begin{itemize}
-\item
+\frametitle{Their Pay-off when eating}
 \begin{tabular}{|c|c|c|}
 \hline
 \hline
-    & B head & B tail\\
+    & {\color{red}Alice} go to No.3 & {\color{red}Alice} go to No.1\\
 \hline
-A head & (1,-1) & (-1,1)\\
+{\color{blue}Bob} go to No.3 & ({\color{blue}10},{\color{red}4}) & ({\color{blue}3},{\color{red}5})\\
 \hline
-A tail & (-1,1) & (1,-1)\\
+{\color{blue}Bob} go to No.1 &  & \\
 \hline
 \hline
 \end{tabular}
-\item
-(x,y) means A's pay-off is x and B's pay-off is y.\\
-\item After thinking about the game, "A and B both choose to show head of the coin at 50\% probability and show tail at 50\% probability", it is a mixed strategy.
-\item Actually, this mixed strategy is a Nash Equilibrium.
+\end{frame}
+
+\begin{frame}
+\frametitle{Their Pay-off when eating}
+\begin{tabular}{|c|c|c|}
+\hline
+\hline
+    & {\color{red}Alice} go to No.3 & {\color{red}Alice} go to No.1\\
+\hline
+{\color{blue}Bob} go to No.3 & ({\color{blue}10},{\color{red}4}) & ({\color{blue}3},{\color{red}5})\\
+\hline
+{\color{blue}Bob} go to No.1 & ({\color{blue}0},{\color{red}10}) & \\
+\hline
+\hline
+\end{tabular}
+\end{frame}
+
+\begin{frame}
+\frametitle{Their Pay-off when eating}
+\begin{tabular}{|c|c|c|}
+\hline
+\hline
+    & {\color{red}Alice} go to No.3 & {\color{red}Alice} go to No.1\\
+\hline
+{\color{blue}Bob} go to No.3 & ({\color{blue}10},{\color{red}4}) & ({\color{blue}3},{\color{red}5})\\
+\hline
+{\color{blue}Bob} go to No.1 & ({\color{blue}0},{\color{red}10}) & ({\color{blue}7},{\color{red}0})\\
+\hline
+\hline
+\end{tabular}
+\end{frame}
+
+\begin{frame}
+\frametitle{How will they act?}
+\begin{tabular}{|c|c|c|}
+\hline
+\hline
+    & {\color{red}Alice} go to No.3 & {\color{red}Alice} go to No.1\\
+\hline
+{\color{blue}Bob} go to No.3 & ({\color{blue}10},{\color{red}4}) {\color{green}*}& ({\color{blue}3},{\color{red}5})\\
+\hline
+{\color{blue}Bob} go to No.1 & ({\color{blue}0},{\color{red}10}) & ({\color{blue}7},{\color{red}0})\\
+\hline
+\hline
+\end{tabular}
+\begin{itemize}
+\item  
+If {\color{blue}Bob} claims in WeChat that he will go to No.3 and {\color{red}Alice} claims that she will go to No.3.
+
+\item What will happen?
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{What is Nash Equilibrium?}
+\frametitle{How will they act?}
+\begin{tabular}{|c|c|c|}
+\hline
+\hline
+    & {\color{red}Alice} go to No.3 & {\color{red}Alice} go to No.1\\
+\hline
+{\color{blue}Bob} go to No.3 & ({\color{blue}10},{\color{red}4})& ({\color{blue}3},{\color{red}5})  {\color{green}*}\\
+\hline
+{\color{blue}Bob} go to No.1 & ({\color{blue}0},{\color{red}10}) & ({\color{blue}7},{\color{red}0})\\
+\hline
+\hline
+\end{tabular}
+\begin{itemize}
+\item {\color{red}Alice} will choose to go to No.3 restaurant.
+\end{itemize}
+\end{frame}
 
-In words, x is a Nash equilibrium iff no player can strictly increase his or her payoff by switching to
-a different mixed strategy, if the other players don¡¯t change their strategies.
+\begin{frame}
+\frametitle{How will they act?}
+\begin{tabular}{|c|c|c|}
+\hline
+\hline
+    & {\color{red}Alice} go to No.3 & {\color{red}Alice} go to No.1\\
+\hline
+{\color{blue}Bob} go to No.3 & ({\color{blue}10},{\color{red}4})& ({\color{blue}3},{\color{red}5})\\
+\hline
+{\color{blue}Bob} go to No.1 & ({\color{blue}0},{\color{red}10}) & ({\color{blue}7},{\color{red}0}) {\color{green}*}\\
+\hline
+\hline
+\end{tabular}
+\begin{itemize}
+\item Then {\color{blue}Bob} will choose to go to No.3 restaurant.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{How will they act?}
+\begin{tabular}{|c|c|c|}
+\hline
+\hline
+    & {\color{red}Alice} go to No.3 & {\color{red}Alice} go to No.1\\
+\hline
+{\color{blue}Bob} go to No.3 & ({\color{blue}10},{\color{red}4})& ({\color{blue}3},{\color{red}5}) \\
+\hline
+{\color{blue}Bob} go to No.1 & ({\color{blue}0},{\color{red}10}) {\color{green}*} & ({\color{blue}7},{\color{red}0})\\
+\hline
+\hline
+\end{tabular}
+\begin{itemize}
+\item Then {\color{red}Alice} will choose to go to No.3 restaurant.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{How will they act?}
+\begin{tabular}{|c|c|c|}
+\hline
+\hline
+    & {\color{red}Alice} go to No.3 & {\color{red}Alice} go to No.1\\
+\hline
+{\color{blue}Bob} go to No.3 & ({\color{blue}10},{\color{red}4}) {\color{green}*}& ({\color{blue}3},{\color{red}5})\\
+\hline
+{\color{blue}Bob} go to No.1 & ({\color{blue}0},{\color{red}10}) & ({\color{blue}7},{\color{red}0})\\
+\hline
+\hline
+\end{tabular}
+\begin{itemize}
+\item Then {\color{blue}Bob} will choose to go to No.3 restaurant.
+\item {\Large It is a circulation!!}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{What should they do?}
+\begin{tabular}{|c|c|c|}
+\hline
+\hline
+    & {\color{red}Alice} go to No.3 & {\color{red}Alice} go to No.1\\
+\hline
+{\color{blue}Bob} go to No.3 & ({\color{blue}10},{\color{red}4}) & ({\color{blue}3},{\color{red}5})\\
+\hline
+{\color{blue}Bob} go to No.1 & ({\color{blue}0},{\color{red}10}) & ({\color{blue}7},{\color{red}0})\\
+\hline
+\hline
+\end{tabular}
+\begin{itemize}
+\item When the two persons are stuck in this dilemma, a third person comes out and say, {\Large "Why don't you just choose the restaurant by probability?}"
+\item That's it!
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{What should they do?}
+\begin{tabular}{|c|c|c|}
+\hline
+\hline
+    & {\color{red}Alice} go to No.3 & {\color{red}Alice} go to No.1\\
+\hline
+{\color{blue}Bob} go to No.3 & ({\color{blue}10},{\color{red}4}) & ({\color{blue}3},{\color{red}5})\\
+\hline
+{\color{blue}Bob} go to No.1 & ({\color{blue}0},{\color{red}10}) & ({\color{blue}7},{\color{red}0})\\
+\hline
+\hline
+\end{tabular}
+\begin{itemize}
+\item Supposed that Alice will choose No.3 by probability $a_1$ and choose No.1 by $a_2$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{What should they do?}
+\begin{tabular}{|c|c|c|}
+\hline
+\hline
+    & {\color{red}Alice} go to No.3 & {\color{red}Alice} go to No.1\\
+\hline
+{\color{blue}Bob} go to No.3 & ({\color{blue}10},{\color{red}4}) & ({\color{blue}3},{\color{red}5})\\
+\hline
+{\color{blue}Bob} go to No.1 & ({\color{blue}0},{\color{red}10}) & ({\color{blue}7},{\color{red}0})\\
+\hline
+\hline
+\end{tabular}
+\begin{itemize}
+\item Supposed that Alice will choose No.3 by probability $a_1$ and choose No.1 by $a_2$.
+\item Then if Bob go to No.3, his pay-off will be $10a_1+3a_2$. If he go to No.1, then pay-off will be $7a_2$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{What should they do?}
+\begin{tabular}{|c|c|c|}
+\hline
+\hline
+    & {\color{red}Alice} go to No.3 & {\color{red}Alice} go to No.1\\
+\hline
+{\color{blue}Bob} go to No.3 & ({\color{blue}10},{\color{red}4}) & ({\color{blue}3},{\color{red}5})\\
+\hline
+{\color{blue}Bob} go to No.1 & ({\color{blue}0},{\color{red}10}) & ({\color{blue}7},{\color{red}0})\\
+\hline
+\hline
+\end{tabular}
+\begin{itemize}
+\item Supposed that Alice will choose No.3 by probability $a_1$ and choose No.1 by $a_2$.
+\item Then if Bob go to No.3, his pay-off will be $10a_1+3a_2$. If he go to No.1, then pay-off will be $7a_2$.
+\item $10a_1+3a_2$ must be equal to $7a_2$, otherwise Bob can decide indeed which restaurant to go. And it will be circulation again.\\
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{What should they do?}
+        \qquad $10a_1+3a_2$ = $7a_2$ \\
+        \qquad $a_1 + a_2 = 1$ \\
+        \qquad So $a_1 = \frac{2}{7}, a_2 = \frac{5}{7}$
 \end{frame}
 
 
+\begin{frame}
+\frametitle{What should they do?}
+\begin{tabular}{|c|c|c|}
+\hline
+\hline
+    & {\color{red}Alice} go to No.3 & {\color{red}Alice} go to No.1\\
+\hline
+{\color{blue}Bob} go to No.3 & ({\color{blue}10},{\color{red}4}) & ({\color{blue}3},{\color{red}5})\\
+\hline
+{\color{blue}Bob} go to No.1 & ({\color{blue}0},{\color{red}10}) & ({\color{blue}7},{\color{red}0})\\
+\hline
+\hline
+\end{tabular}
+\begin{itemize}
+\item Supposed that Bob will choose No.3 by probability $b_1$ and choose No.1 by $b_2$.
+\item Based on the same method, we can get that $b_1 = \frac{10}{11},b_2 = \frac{1}{11}$
+\item If both of them choose based on the probability, then it is a equilibrium.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{More Complete situation.}
+{\color{red}Alice} can choose from $(x_1,x_2,...,x_i)$, and the probability vector will be $\overrightarrow{x}$.\\
+{\color{blue}Bob} can choose from $(y_1,y_2,...,y_i)$, and the probability vector will be $\overrightarrow{y}$.\\
+{\color{red}A}($\overrightarrow{x}$,$\overrightarrow{y}$) means {\color{red}Alice}'s paid-off.\\
+{\color{blue}B}($\overrightarrow{x}$,$\overrightarrow{y}$) means {\color{blue}Bob}'s paid-off.\\
+\end{frame}
+
+\begin{frame}
+\frametitle{More Complete situation.}
+Suppose {\color{red}Alice} plays $\overrightarrow{x}$.\\
+Can {\color{blue}Bob} do better than {\color{blue}B}($\overrightarrow{x}$,$\overrightarrow{y}$)?\\
+That is:\\
+        \qquad $\exists \overrightarrow{v} ~~s.t. ~~{\color{blue}B}(\overrightarrow{x},\overrightarrow{v}) >{\color{blue}B}(\overrightarrow{x},\overrightarrow{y})$?
+\end{frame}
+
+\begin{frame}
+\frametitle{Nash Equilibrium}
+DEF:\\
+\qquad $\overrightarrow{x}$,$\overrightarrow{y}$ is a Nash equilibrium if\\
+\qquad $\forall \overrightarrow{u} ~~{\color{blue}B}(\overrightarrow{x},\overrightarrow{y}) \geq{\color{blue}B}(\overrightarrow{u},\overrightarrow{y})$\\
+\qquad $\forall \overrightarrow{v} ~~{\color{blue}B}(\overrightarrow{x},\overrightarrow{y}) \geq{\color{blue}B}(\overrightarrow{x},\overrightarrow{v})$
+\end{frame}
 
 \end{document}

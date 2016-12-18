@@ -86,11 +86,12 @@
 
 \section{Nash’s Theorem}
 \begin{frame}{Nash's Theorem}
-	\begin{itemize}[]
+	\begin{itemize}[<+->]
 		\item \textbf{\large Nash's Theorem}:
 		
 		\qquad Every game with a finite number of players and a finite number of actions
 		available to each player has a Nash equilibrium.
+		\item As for Bob and Alice, there must be a point that they won't change their strategies.
 	\end{itemize}
 \end{frame}
 
@@ -135,46 +136,51 @@
 	\begin{itemize}[<+->]
 		\item Now we introduce the idea of \textbf{Gain function}:\\
 		\begin{equation}
-		Gain_{p;s_p} (x) = max\{u_p(s_p;x_{-p})-u_p(x), 0\} \ \  \ \ \ \ \ \nonumber
+		{\color{blue}Gain_{Bob}} ({\color{blue}\overrightarrow{x}}, {\color{red}\overrightarrow{y}}, {\color{blue}i}) = max\{{\color{blue}B}({\color{blue}\overrightarrow{e_i}}, {\color{red}\overrightarrow{y}})-{\color{blue}B}({\color{blue}\overrightarrow{x}}, {\color{red}\overrightarrow{y}}), 0\} \ \  \ \ \ \ \ \nonumber
 		\end{equation}
-		\item In other words, the $Gain$ is equal to the increase in payoff for player p if he were to switch to pure
-		strategy $s_p$.
+		\begin{equation}
+		{\color{red}Gain_{Alice}} ({\color{blue}\overrightarrow{x}}, {\color{red}\overrightarrow{y}}, {\color{red}j}) = max\{{\color{red}A}({\color{blue}\overrightarrow{x}}, {\color{red}\overrightarrow{e_j}})-{\color{red}A}({\color{blue}\overrightarrow{x}}, {\color{red}\overrightarrow{y}}), 0\} \ \  \ \ \ \ \ \nonumber
+		\end{equation}
+		\item In other words, the $Gain$ is equal to the increase in payoff for a player if he were to switch to another strategy.
 		\item Obviously, the $Gain$ for all players is 0 in \textbf{Nash Equilibrium}.
 	\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{Proof of Nash' Theorem}
 	\begin{itemize}[<+->]
-		\item Now we define a function $f$ as follows:
+		\item Now we define a function as follows:
 		 \begin{equation}
-		 y_p(s_p) := \frac{x_p(s_p) + Gain_{p;s_p}(x)}{1 + \sum_{s'_p \in S_p} Gain_{p;s'_p}(x)} \ \ \ \ \ \ \ \nonumber
+		 {\color{blue}f}({\color{blue}\overrightarrow{x}}, {\color{red}\overrightarrow{y}}, {\color{blue}i}) = \frac{{\color{blue}x_i} + {\color{blue}Gain_{Bob}} ({\color{blue}\overrightarrow{x}}, {\color{red}\overrightarrow{y}}, {\color{blue}i})}{1 + \sum_i{\color{blue}Gain_{Bob}} ({\color{blue}\overrightarrow{x}}, {\color{red}\overrightarrow{y}}, {\color{blue}i})}\ \  \ \ \ \ \ \nonumber
 		 \end{equation}
-		\item In other words, function $f$ tries to boost the probability mass that player p places on various pure strategies
-		depending on the $p$ gains in payoff the player would get by switching to these strategies.
+		 \begin{equation}
+		 {\color{red}g}({\color{blue}\overrightarrow{x}}, {\color{red}\overrightarrow{y}}, {\color{red}j}) = \frac{{\color{red}y_j} + {\color{red}Gain_{Alice}} ({\color{blue}\overrightarrow{x}}, {\color{red}\overrightarrow{y}}, {\color{red}j})}{1 + \sum_j{\color{red}Gain_{Alice}} ({\color{blue}\overrightarrow{x}}, {\color{red}\overrightarrow{y}}, {\color{red}j})}\ \  \ \ \ \ \ \nonumber
+		 \end{equation}
+		\item In other words, function $f$ and $g$ tries to boost the probability mass that player places on various pure strategies
+		depending on the each one's gains in payoff the player would get by switching to these strategies.
 	\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{Proof of Nash' Theorem}
 	\begin{itemize}[<+->]
-		\item It is easy to see that f is continuous, convex and compact. So we can use \textbf{Brouwer’s fixed point theorem}, there is at least one fixed point of function $f$.
-		\item For any fixed point $x=f(x)$, 
+		\item These function is a map from a 2-dimension space to a 2-dimension space.
 		\begin{equation}
-		Gain_{p;s_p}(x) = 0, \ \ \  \forall p\in [n], s_p \in S_p .\nonumber
+		(\overrightarrow{x}, \overrightarrow{y}) \overrightarrow{}(\overrightarrow{x'}, \overrightarrow{y'})\ \  \ \ \ \ \  \nonumber
 		\end{equation}
-	It will be proved later.
-	\item Then we claim that any fixed point of $f$ is a \textbf{Nash equilibrium}.
 	\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{Proof of Nash' Theorem}
 	\begin{itemize}[<+->]
-		\item It is easy to see that f is continuous, convex and compact. So we can use \textbf{Brouwer’s fixed point theorem}, there is at least one fixed point of function $f$.
-		\item For any fixed point $x=f(x)$, 
+		\item It is easy to see that this function is continuous. So we can use \textbf{Brouwer’s fixed point theorem}, there is at least one fixed point of the function.
+		\item For any fixed point 
 		\begin{equation}
-		Gain_{p;s_p}(x) = 0, \ \ \  \forall p\in [n], s_p \in S_p .\nonumber
+		{\color{blue}Gain_{Bob}} ({\color{blue}\overrightarrow{x}}, {\color{red}\overrightarrow{y}}, {\color{blue}i}) = 0, \ \ \  \forall i\in [n] \nonumber
+		\end{equation}
+		\begin{equation}
+		{\color{red}Gain_{Alice}} ({\color{blue}\overrightarrow{x}}, {\color{red}\overrightarrow{y}}, {\color{red}j}) = 0, \ \ \  \forall j\in [n]\nonumber
 		\end{equation}
 		It can be proved by by contradiction.
-		\item Then we claim that any fixed point of $f$ is a \textbf{Nash equilibrium}.
+		\item Then we claim that any fixed point of this function is a \textbf{Nash equilibrium}.
 	\end{itemize}
 \end{frame}
 

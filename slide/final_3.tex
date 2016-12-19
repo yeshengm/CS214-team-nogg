@@ -96,22 +96,22 @@ Prisoner's Dilemma:\\
 \begin{tabular}{|c|c|c|}
 \hline
 \hline
-    &{\color{red}Bob} Deny&{\color{red}Bob} Confess\\
+    &{\color{red}Alice} Deny&{\color{red}Alice} Confess\\
 \hline
-{\color{blue}Alice} Deny& ({\color{blue}-1},{\color{red}-1}) & ({\color{blue}-9},{\color{red}0})\\
+{\color{blue}Bob} Deny& ({\color{blue}-1},{\color{red}-1}) & ({\color{blue}-9},{\color{red}0})\\
 \hline
-{\color{blue}Alice} Confess& ({\color{blue}0},{\color{red}-9}) & ({\color{blue}-6},{\color{red}-6})\\
+{\color{blue}Bob} Confess& ({\color{blue}0},{\color{red}-9}) & ({\color{blue}-6},{\color{red}-6})\\
 \hline
 \hline
 \end{tabular}
 \item
-{\color{blue}$S_A = \{ C, D\}$}  \qquad {\color{red}$S_B = \{ C, D\}$}
+{\color{blue}$S_B = \{ C, D\}$}  \qquad {\color{red}$S_A = \{ C, D\}$}
 \item
-{\color{blue}$u_A(D,D) = -1$} \qquad {\color{red}$u_B(D,D) = -1$}
+{\color{blue}$u_B(D,D) = -1$} \qquad {\color{red}$u_A(D,D) = -1$}
 \item
-{\color{blue}$u_A(D,C) = -9$} \qquad {\color{red}$u_B(D,C) = 0$}\\
-{\color{blue}$u_A(C,D) = 0 $} \text{ } \qquad {\color{red}$u_B(C,D) = -9$}\\
-{\color{blue}$u_A(C,C) = -6$} \qquad {\color{red}$u_B(C,C) = -6$}
+{\color{blue}$u_B(D,C) = -9$} \qquad {\color{red}$u_A(D,C) = 0$}\\
+{\color{blue}$u_B(C,D) = 0 $} \text{ } \qquad {\color{red}$u_A(C,D) = -9$}\\
+{\color{blue}$u_B(C,C) = -6$} \qquad {\color{red}$u_A(C,C) = -6$}
 \end{itemize}
 \end{frame}
 
@@ -127,31 +127,31 @@ $\exists (s_1,s_2,...,s_n)\in S_1\times S_2 \times ... \times S_n$, $\sum_{i=1}^
 
 \begin{frame}
 \frametitle{Strict Domination}
-Assuming you are {\color{blue}Alice}, what should you do?\\
+Assuming you are {\color{blue}Bob}, what should you do?\\
 \begin{itemize}[<+->]
 \item
 \begin{tabular}{|c|c|c|}
 \hline
 \hline
-    &{\color{red}Bob} Deny&{\color{red}Bob} Confess\\
+    &{\color{red}Alice} Deny&{\color{red}Alice} Confess\\
 \hline
-{\color{blue}Alice} Deny& ({\color{blue}-1},{\color{red}-1}) & ({\color{blue}-9},{\color{red}0})\\
+{\color{blue}Bob} Deny& ({\color{blue}-1},{\color{red}-1}) & ({\color{blue}-9},{\color{red}0})\\
 \hline
-{\color{blue}Alice} Confess& ({\color{blue}0},{\color{red}-9}) & ({\color{blue}-6},{\color{red}-6})\\
+{\color{blue}Bob} Confess& ({\color{blue}0},{\color{red}-9}) & ({\color{blue}-6},{\color{red}-6})\\
 \hline
 \hline
 \end{tabular}
 
 \item
-What if {\color{red}Bob} chooses to \textbf{Deny}?
+What if {\color{red}Alice} chooses to \textbf{Deny}?
 \item
-Result: {\color{blue}Alice} is free and {\color{red}Bob} will spend 9 years.
+Result: {\color{blue}Bob} is free and {\color{red}Alice} will spend 9 years.
 \item
-What if {\color{red}Bob} chooses to \textbf{Confess}?
+What if {\color{red}Alice} chooses to \textbf{Confess}?
 \item
-Result: {\color{blue}Alice} and {\color{red}Bob} will spend 6 years together.
+Result: {\color{blue}Bob} and {\color{red}Alice} will spend 6 years together.
 \item
-\textbf{In both cases, }{\color{blue}Alice}\textbf{ will definitely choose to confess.}
+\textbf{In both cases, }{\color{blue}Bob}\textbf{ will definitely choose to confess.}
 \end{itemize}
 \end{frame}
 
@@ -162,38 +162,11 @@ The process is like:\\
 \begin{tabular}{|c|c|c|}
 \hline
 \hline
-    &{\color{red}Bob} Deny&{\color{red}Bob} Confess\\
+    &{\color{red}Alice} Deny&{\color{red}Alice} Confess\\
 \hline
-{\color{blue}Alice} Deny& ({\color{blue}-1},{\color{red}-1}) & ({\color{blue}-9},{\color{red}0})\\
+{\color{blue}Bob} Deny& ({\color{blue}-1},{\color{red}-1}) & ({\color{blue}-9},{\color{red}0})\\
 \hline
-{\color{blue}Alice} Confess& ({\color{blue}0},{\color{red}-9}) & ({\color{blue}-6},{\color{red}-6})\\
-\hline
-\hline
-\end{tabular}
-\end{frame}
-
-\begin{frame}
-\frametitle{Strict Domination}
-The process is like:\\
-\centering
-\begin{tabular}{|c|c|c|}
-\hline
-\hline
-    &{\color{red}Bob} Deny&{\color{red}Bob} Confess\\
-\hline
-{\color{blue}Alice} Deny& ({\color{blue}-1},{\color{red}-1}) & ({\color{blue}-9},{\color{red}0})\\
-\hline
-{\color{blue}Alice} Confess& ({\color{blue}0},{\color{red}-9}) & ({\color{blue}-6},{\color{red}-6})\\
-\hline
-\hline
-\end{tabular}\\
-$\Downarrow$\\
-\begin{tabular}{|c|c|c|}
-\hline
-\hline
-    &{\color{red}Bob} Deny&{\color{red}Bob} Confess\\
-\hline
-{\color{blue}Alice} Confess& ({\color{blue}0},{\color{red}-9}) & ({\color{blue}-6},{\color{red}-6})\\
+{\color{blue}Bob} Confess& ({\color{blue}0},{\color{red}-9}) & ({\color{blue}-6},{\color{red}-6})\\
 \hline
 \hline
 \end{tabular}
@@ -206,21 +179,11 @@ The process is like:\\
 \begin{tabular}{|c|c|c|}
 \hline
 \hline
-    &{\color{red}Bob} Deny&{\color{red}Bob} Confess\\
+    &{\color{red}Alice} Deny&{\color{red}Alice} Confess\\
 \hline
-{\color{blue}Alice} Deny& ({\color{blue}-1},{\color{red}-1}) & ({\color{blue}-9},{\color{red}0})\\
+{\color{blue}Bob} Deny& ({\color{blue}-1},{\color{red}-1}) & ({\color{blue}-9},{\color{red}0})\\
 \hline
-{\color{blue}Alice} Confess& ({\color{blue}0},{\color{red}-9}) & ({\color{blue}-6},{\color{red}-6})\\
-\hline
-\hline
-\end{tabular}\\
-$\Downarrow$\\
-\begin{tabular}{|c|c|c|}
-\hline
-\hline
-    &{\color{red}Bob} Deny&{\color{red}Bob} Confess\\
-\hline
-{\color{blue}Alice} Confess& ({\color{blue}0},{\color{red}-9}) & ({\color{blue}-6},{\color{red}-6})\\
+{\color{blue}Bob} Confess& ({\color{blue}0},{\color{red}-9}) & ({\color{blue}-6},{\color{red}-6})\\
 \hline
 \hline
 \end{tabular}\\
@@ -228,12 +191,49 @@ $\Downarrow$\\
 \begin{tabular}{|c|c|c|}
 \hline
 \hline
-    &{\color{red}Bob} Confess\\
+    &{\color{red}Alice} Deny&{\color{red}Alice} Confess\\
 \hline
-{\color{blue}Alice} Confess&  ({\color{blue}-6},{\color{red}-6})\\
+{\color{blue}Bob} Confess& ({\color{blue}0},{\color{red}-9}) & ({\color{blue}-6},{\color{red}-6})\\
 \hline
 \hline
-\end{tabular}
+\end{tabular}\\
+\end{frame}
+
+\begin{frame}
+\frametitle{Strict Domination}
+The process is like:\\
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+\hline
+    &{\color{red}Alice} Deny&{\color{red}Alice} Confess\\
+\hline
+{\color{blue}Bob} Deny& ({\color{blue}-1},{\color{red}-1}) & ({\color{blue}-9},{\color{red}0})\\
+\hline
+{\color{blue}Bob} Confess& ({\color{blue}0},{\color{red}-9}) & ({\color{blue}-6},{\color{red}-6})\\
+\hline
+\hline
+\end{tabular}\\
+$\Downarrow$\\
+\begin{tabular}{|c|c|c|}
+\hline
+\hline
+    &{\color{red}Alice} Deny&{\color{red}Alice} Confess\\
+\hline
+{\color{blue}Bob} Confess& ({\color{blue}0},{\color{red}-9}) & ({\color{blue}-6},{\color{red}-6})\\
+\hline
+\hline
+\end{tabular}\\
+$\Downarrow$\\
+\begin{tabular}{|c|c|c|}
+\hline
+\hline
+    &{\color{red}Alice} Confess\\
+\hline
+{\color{blue}Bob} Confess& ({\color{blue}-6},{\color{red}-6})\\
+\hline
+\hline
+\end{tabular}\\
 \end{frame}
 
 \begin{frame}

@@ -1,0 +1,22 @@
+here is some information about the coming up exam.
+
+1. Presentation topics. The following presentation topics might be part of the exam:
+
+a) The Union-Find problem and its data structures (but NOT fancy proofs for path compression; this would be too difficult)
+b) Zero-sum games
+c) non-zero sum games.
+
+2. Other material. Every topic of the class I presented might show up in the exam (everything from Euclidean algorithm to Linear Programming).
+
+3. Lecture notes. There are no complete lecture notes for this course.
+
+3.1 For certain parts (sorting, simple graph algorithms) refer to "Algorithms" by Dasgupta, Papadimitriou, and Vazirani
+3.2 For maximum flow and matchings, please refer to the slides I uploaded, or to my cnmooc video course, or any of the many lecture notes you can find online.
+3.3 For linear programming, please refer to "Linear programming in a nutshell" on the course material page.
+
+http://basics.sjtu.edu.cn/~dominik/teaching/material/index.html
+
+4. The exam is open-book. You can bring handwritten notes, books, and printed material. But rest assured that excessive material will not necessarily help you. You are not allowed any electronic equipment, neither will you need any.
+
+5. An exam question might have several sub-questions. Those might differ in their level of difficulty. So maybe it's a good strategy to first solve the simple questions.
+

@@ -1,0 +1,22 @@
+hw2
+Ex9
+Minor comment: there is something you count twice, basically around j<i=k and k = j < i. You count it in the middle, also on left/right side.
+This is quite complicate computation in Ex9.
+
+hw3
+Ex4:
+The path connecting u and v is not only in T, there might be other paths connecting them, which you should give a proof for those paths.
+
+hw4
+Ex1
+The description can not regard as a proof. 
+
+Ex4
+It may be a typo that "the source and destination of this graph are vout and s". What does the v_out mean here?  (But you do not lose credit here)
+
+Ex5
+It is not obviously that the vertex matched in the last level can be matched in the next level. Especially when i > n/2.
+
+Ex6 
+The weight between s and the second layer should not be 2, since this will let edges have two orientation. If an edge has two orientation, and the final orientation edges number is |E|, it will not return a feasible solution. Since the solution can be an edge has two orientation, another edge has no orientation.  
+
